@@ -207,7 +207,12 @@ body {
 /* Legend */
 .legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.76rem; color: var(--cp-text-soft); }
 .legend span { display: inline-flex; align-items: center; gap: 6px; }
-.legend .lg-dot { width: 8px; height: 8px; background: var(--cp-border-strong); display: inline-block; }
+.legend .lg-dot { width: 9px; height: 9px; background: var(--cp-border-strong); display: inline-block; flex-shrink: 0; }
+.legend .lg-dot.type-video     { background: var(--el-primary); }
+.legend .lg-dot.type-module    { background: var(--el-mid); }
+.legend .lg-dot.type-path      { background: var(--el-deep); transform: rotate(45deg); }
+.legend .lg-dot.type-lab       { width: 0; height: 0; background: transparent; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 9px solid var(--el-steel); }
+.legend .lg-dot.type-classroom { background: var(--el-navy); box-shadow: inset 0 0 0 2px #ffffff; }
 
 /* Classroom callout */
 .callout {
@@ -237,10 +242,21 @@ body {
 }
 .res-check.checked { background: var(--cp-success); border-color: var(--cp-success); color: #fff; }
 .res-type {
-  flex-shrink: 0; font-size: 0.68rem; font-weight: 700; width: 32px; height: 32px;
-  display: flex; align-items: center; justify-content: center; background: var(--cp-surface-soft);
-  border: 1px solid var(--cp-border); color: var(--cp-text-muted); letter-spacing: 0.02em;
+  flex-shrink: 0; font-size: 0.64rem; font-weight: 700; width: 32px; height: 32px;
+  display: flex; align-items: center; justify-content: center; background: var(--el-mid);
+  border: none; color: #ffffff; letter-spacing: 0.02em;
 }
+/* Distinct shape + blue-shade per content type (monochrome-blue, shape carries the meaning; no rounded corners) */
+.res-type.type-video    { background: var(--el-primary); }
+.res-type.type-module   { background: var(--el-mid); }
+.res-type.type-path     { background: var(--el-deep); transform: rotate(45deg); }
+.res-type.type-path span { display: inline-block; transform: rotate(-45deg); }
+.res-type.type-lab      { background: var(--el-steel); color: var(--el-navy); position: relative; }
+.res-type.type-lab::after {
+  content: ""; position: absolute; top: 0; right: 0; width: 0; height: 0;
+  border-style: solid; border-width: 0 11px 11px 0; border-color: transparent var(--el-navy) transparent transparent;
+}
+.res-type.type-classroom{ background: var(--el-navy); box-shadow: inset 0 0 0 2px #ffffff; }
 .res-body { flex: 1; min-width: 0; }
 .res-title { font-weight: 600; font-size: 0.94rem; margin: 0 0 3px; }
 .res-meta { font-size: 0.78rem; color: var(--cp-text-soft); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
@@ -338,7 +354,7 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
   </div>
 
   <div class="legend">
-    <span><span class="lg-dot"></span>Video</span><span><span class="lg-dot"></span>Learn module</span><span><span class="lg-dot"></span>Learn path</span><span><span class="lg-dot"></span>Hands-on lab</span><span><span class="lg-dot"></span>Instructor-led classroom</span>
+    <span><span class="lg-dot type-video"></span>Video</span><span><span class="lg-dot type-module"></span>Learn module</span><span><span class="lg-dot type-path"></span>Learn path</span><span><span class="lg-dot type-lab"></span>Hands-on lab</span><span><span class="lg-dot type-classroom"></span>Instructor-led classroom</span>
   </div>
 
   <div class="badge-rail" id="badge-rail"></div>
@@ -569,7 +585,7 @@ function buildCard(tier, item, idx, showTierTag) {
   card.className = "res-card" + (checked ? " done" : "");
   card.innerHTML = `
     <div class="res-check ${checked ? "checked" : ""}" data-key="${key}">${checked ? "✓" : ""}</div>
-    <div class="res-type">${item.icon}</div>
+    <div class="res-type type-${item.type}"><span>${item.icon}</span></div>
     <div class="res-body">
       ${showTierTag ? `<div class="res-tier-tag">${tier.icon} ${tier.title}</div>` : ""}
       <p class="res-title">${item.title}</p>
