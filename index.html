@@ -189,6 +189,12 @@ body {
 }
 .ghost-btn:hover { border-color: #fff; background: rgba(255,255,255,0.1); }
 .ghost-btn.danger:hover { border-color: #ffb4b4; color: #ffdada; }
+.hero-btn-primary {
+  border: 1px solid #ffffff; background: #ffffff; color: var(--el-deep);
+  padding: 10px 18px; font-size: 0.85rem; font-family: var(--font-semi); font-weight: 600;
+  cursor: pointer; display: inline-flex; align-items: center; gap: 8px;
+}
+.hero-btn-primary:hover { background: #eef2f7; }
 .toast {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);
   background: var(--cp-text); color: var(--cp-bg); padding: 9px 18px;
@@ -386,7 +392,7 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
     </div>
     <div class="overall-bar"><div id="overall-fill" style="width:0%"></div></div>
     <div class="hero-actions">
-      <button class="ghost-btn" id="copy-resume">Copy resume link (saves your progress)</button>
+      <button class="hero-btn-primary" id="copy-resume">Copy resume link (saves your progress)</button>
       <button class="ghost-btn" id="report-completion" style="border-color:var(--el-gold);color:var(--el-gold);">Report your completion</button>
       <button class="ghost-btn danger" id="reset-btn">Reset progress</button>
     </div>
