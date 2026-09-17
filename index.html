@@ -3,7 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Copilot Skilling Journey</title>
+<title>Copilot Skilling Journey — From 101 to Agents &amp; Apps</title>
+<meta name="description" content="A free, self-paced learning path for Microsoft Copilot: 101 → Power User → Agent Builder → Developer. Curated videos, Microsoft Learn modules, and hands-on labs, with progress tracking and a certificate.">
+<meta name="theme-color" content="#b11f4b">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23b11f4b'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Segoe UI,Arial,sans-serif'%3E🚀%3C/text%3E%3C/svg%3E">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Copilot Skilling Journey — From 101 to Agents & Apps">
+<meta property="og:description" content="A free, self-paced learning path for Microsoft Copilot: 101 → Power User → Agent Builder → Developer. Videos, Microsoft Learn modules, hands-on labs, and a certificate.">
+<meta property="og:url" content="https://hasan929292.github.io/copilot-skilling-journey/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Copilot Skilling Journey">
+<meta name="twitter:description" content="Self-paced Microsoft Copilot learning path: 101 → Power User → Agent Builder → Developer.">
 <script>
   (() => {
     const param = new URLSearchParams(window.location.search).get("scoutTheme");
@@ -74,19 +84,27 @@ body {
   font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
-.wrap { max-width: 1080px; margin: 0 auto; padding: 24px 20px 64px; }
+.wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 64px; }
 
-/* Banner */
-.compat-note {
-  background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 12px;
-  padding: 10px 16px; margin-bottom: 16px; font-size: 0.8rem; color: var(--cp-text-muted);
-  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+/* Site header */
+.site-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 16px 0; flex-wrap: wrap;
 }
-.compat-note b { color: var(--cp-text); }
-.compat-note button {
-  margin-left: auto; border: 1px solid var(--cp-border); background: transparent; color: var(--cp-text-muted);
-  border-radius: 999px; padding: 4px 12px; font-size: 0.75rem; cursor: pointer; font-family: inherit;
+.site-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+.site-brand .logo-dot {
+  width: 30px; height: 30px; border-radius: 9px; background: var(--cp-accent); color: var(--cp-accent-fg);
+  display: flex; align-items: center; justify-content: center; font-size: 1rem;
 }
+.site-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.site-actions a, .site-actions button {
+  border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text);
+  padding: 7px 14px; border-radius: 999px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
+  text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
+}
+.site-actions a:hover, .site-actions button:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+.site-actions .primary { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
+.site-actions .primary:hover { background: var(--cp-accent-hover); color: var(--cp-accent-fg); }
 
 /* Header */
 .hero {
@@ -278,7 +296,7 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 .empty-state { text-align: center; padding: 40px 20px; color: var(--cp-text-soft); }
 
 @media print {
-  .hero, .badge-rail, .tabs, .callout, .card-grid, footer, .cert-input, .cert-btn-row, .compat-note, .search-bar, .legend { display: none !important; }
+  .hero, .badge-rail, .tabs, .callout, .card-grid, footer, .cert-input, .cert-btn-row, .site-header, .search-bar, .legend { display: none !important; }
   #panel-cert { display: block !important; }
   .cert-wrap { padding-top: 40px; }
 }
@@ -287,9 +305,13 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 <body>
 <div class="wrap">
 
-  <div class="compat-note">
-    <span>📎 <b>Sharing this file:</b> works fully when opened directly in a browser. If viewed through a OneDrive/SharePoint preview link, some outbound clicks may be blocked — use the "Copy link" button on any item instead.</span>
-    <button id="dismiss-note">Got it</button>
+  <div class="site-header">
+    <div class="site-brand"><span class="logo-dot">🚀</span> Copilot Skilling Journey</div>
+    <div class="site-actions">
+      <button id="share-page">📤 Share</button>
+      <a href="https://github.com/Hasan929292/copilot-skilling-journey" target="_blank" rel="noopener">⭐ View on GitHub</a>
+      <a class="primary" href="https://github.com/Hasan929292/copilot-skilling-journey/issues/new?title=Suggestion%20for%20Copilot%20Skilling%20Journey" target="_blank" rel="noopener">💡 Suggest a resource</a>
+    </div>
   </div>
 
   <div class="hero">
@@ -354,7 +376,7 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 
   <div class="toast" id="toast"></div>
 
-  <footer class="note">Progress is saved in this browser and mirrored into the page URL so it survives sharing and reloads.<br>Sources: Microsoft Learn (learn.microsoft.com) + YouTube (Microsoft Learn, Microsoft Community Learning, and vetted community creators).</footer>
+  <footer class="note">Progress is saved in this browser and mirrored into the page URL so it survives sharing and reloads.<br>Sources: Microsoft Learn (learn.microsoft.com) + YouTube (Microsoft Learn, Microsoft Community Learning, and vetted community creators).<br>Open source on <a href="https://github.com/Hasan929292/copilot-skilling-journey" target="_blank" rel="noopener" style="color:var(--cp-link);">GitHub</a> — edits welcome.</footer>
 </div>
 
 <script>
@@ -736,8 +758,17 @@ resetBtn.addEventListener("click", () => {
   showToast("Progress reset");
 });
 
-document.getElementById("dismiss-note").addEventListener("click", (e) => {
-  e.target.closest(".compat-note").style.display = "none";
+document.getElementById("share-page").addEventListener("click", () => {
+  const shareData = {
+    title: "Copilot Skilling Journey",
+    text: "A free, self-paced learning path for Microsoft Copilot — 101 to Power User to Agent Builder to Developer.",
+    url: location.origin + location.pathname
+  };
+  if (navigator.share) {
+    navigator.share(shareData).catch(() => {});
+  } else {
+    copyText(shareData.url, "Link copied — share it anywhere");
+  }
 });
 
 /* certificate tab entry point: reuse a tab-like button appended after render */
