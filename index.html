@@ -383,30 +383,36 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 <script>
 const TIERS = [
   {
-    id: "t1", name: "101", icon: "🌱", title: "Copilot 101 — Awareness", est: "~1.5 hrs total",
+    id: "t1", name: "101", icon: "🌱", title: "Copilot 101 — Awareness", est: "~2.5 hrs total",
     desc: "What Copilot is, safe/responsible use, and your first prompts. For everyone, no prerequisites.",
     items: [
       { type: "video", label: "Video", icon: "🎥", title: "Microsoft Copilot for Organizations — Complete Tutorial", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=WclbTYaieHo", mins: "~25 min" },
       { type: "video", label: "Video", icon: "🎥", title: "Microsoft 365 Copilot Tutorial — Beginner's Guide", src: "Mike Tholfsen · YouTube", url: "https://www.youtube.com/watch?v=JbOJliF-Cn4", mins: "~15 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Introduction to Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/introduction-microsoft-365-copilot/", mins: "20 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Explore the Possibilities with Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/explore-possibilities-microsoft-365-copilot/", mins: "20 min" },
       { type: "module", label: "Module", icon: "📘", title: "Get ready to work with Microsoft Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-ready-work-microsoft-365-copilot/", mins: "20 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Craft effective prompts for Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/craft-effective-prompts-microsoft-365-copilot/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Get started with Microsoft 365 Copilot Chat", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-microsoft-365-copilot-business-chat/", mins: "20 min" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Craft effective prompts for Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/craft-effective-prompts-copilot-microsoft-365/", mins: "45 min" },
       { type: "lab", label: "Hands-on", icon: "🧪", title: "Try Copilot Chat with 3 real prompts from your own inbox or calendar", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "15 min" }
     ]
   },
   {
-    id: "t2", name: "Power User", icon: "⚡", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~4 hrs total",
-    desc: "Fluent day-to-day use of Copilot across the apps people actually work in.",
+    id: "t2", name: "Power User", icon: "⚡", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~6 hrs total",
+    desc: "Fluent day-to-day use of Copilot across the apps people actually work in, plus role-specific use cases.",
     items: [
       { type: "path", label: "Learning Path", icon: "📚", title: "Draft, analyze, and present with Microsoft Copilot (7 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-with-microsoft-365-copilot/", mins: "~2.5 hrs" },
       { type: "video", label: "Video", icon: "🎥", title: "Copilot Chat vs Microsoft 365 Copilot: What's the Difference?", src: "Chris Menard · YouTube", url: "https://www.youtube.com/watch?v=vDOjRBeMmiU", mins: "~10 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Work smarter with Microsoft 365 Copilot Chat", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/work-smarter-with-microsoft-365-copilot-chat/", mins: "25 min" },
       { type: "module", label: "Module", icon: "📘", title: "Build effective presentations with AI (PowerPoint + Idea Coach)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/present-copilot-microsoft-powerpoint/", mins: "25 min" },
       { type: "module", label: "Module", icon: "📘", title: "Make your meetings more productive with AI (Teams + Facilitator)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/make-your-meetings-more-productive-ai/", mins: "25 min" },
       { type: "module", label: "Module", icon: "📘", title: "Uncover new data insights with AI (Excel + Analyst agent)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/uncover-new-data-insights-ai/", mins: "30 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Explore prebuilt Microsoft 365 Copilot agents", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/explore-prebuilt-microsoft-365-copilot-agents/", mins: "20 min" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Empower your workforce with Microsoft 365 Copilot use cases (by role: Sales, Marketing, Finance, Legal, IT, HR...)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/empower-workforce-copilot-use-cases/", mins: "~2 hrs" },
       { type: "lab", label: "Hands-on", icon: "🧪", title: "Draft one real document/deck/analysis for your own work using Copilot", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "30 min" }
     ]
   },
   {
-    id: "t3", name: "Builder", icon: "🛠️", title: "Builder — Agents in Copilot Studio (no-code)", est: "~7 hrs total",
+    id: "t3", name: "Builder", icon: "🛠️", title: "Builder — Agents in Copilot Studio (no-code)", est: "~9 hrs total",
     desc: "Move from using Copilot to building agents with Copilot Studio — classroom-ready with a free instructor-led option.",
     items: [
       { type: "path", label: "Learning Path", icon: "📚", title: "Build a foundation to build AI agents and extend Microsoft 365 Copilot (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-foundation-extend-microsoft-365-copilot/", mins: "~1.5 hrs" },
@@ -414,13 +420,16 @@ const TIERS = [
       { type: "video", label: "Video", icon: "🎥", title: "How to Use Microsoft Copilot Studio (Step-by-Step Tutorial)", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=dX9MJM5EokE", mins: "~20 min" },
       { type: "classroom", label: "Classroom", icon: "🏫", title: "Agent in a Day — free instructor-led workshop (register)", src: "Microsoft, in-person/virtual", url: "https://aka.ms/nextAgIAD", mins: "Half-day" },
       { type: "path", label: "Learning Path", icon: "📚", title: "Agent in a Day — Online Workshop companion (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/agents-online-workshop/", mins: "~2 hrs" },
+      { type: "module", label: "Module", icon: "📘", title: "Build effective agents with Microsoft Copilot Studio", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/build-effective-bots/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Create agents with Microsoft Copilot Studio — Online Workshop", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/power-virtual-agents-workshop/", mins: "~2 hrs" },
+      { type: "module", label: "Module", icon: "📘", title: "Build an autonomous agent in Copilot Studio", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/autonomous-agent/", mins: "30 min" },
       { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot in Copilot Studio — declarative agents (5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-365-copilot-studio/", mins: "~2 hrs" },
       { type: "lab", label: "Hands-on", icon: "🧪", title: "Build and publish one declarative agent for your team", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent", mins: "45 min" }
     ]
   },
   {
-    id: "t4", name: "Developer", icon: "🧑‍💻", title: "Developer / Architect — Extensibility & Apps", est: "~8 hrs total",
-    desc: "Custom agents, plugins, connectors, and full extensibility for IT pros and developers.",
+    id: "t4", name: "Developer", icon: "🧑‍💻", title: "Developer / Architect — Extensibility & Apps", est: "~12 hrs total",
+    desc: "Custom agents, plugins, connectors, and full extensibility for IT pros and developers — including Azure AI Foundry.",
     items: [
       { type: "path", label: "Learning Path", icon: "📚", title: "Prepare for Microsoft 365 Copilot extensibility (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/prepare-microsoft-365-copilot-extensibility/", mins: "~1 hr" },
       { type: "video", label: "Video", icon: "🎥", title: "Copilot Extensibility Fundamentals — MS-4010, Episode 2", src: "Microsoft Learn · YouTube", url: "https://www.youtube.com/watch?v=qyUTEhI91Yo", mins: "~15 min" },
@@ -429,6 +438,9 @@ const TIERS = [
       { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot with Copilot Studio actions and connectors (MS-4009, 5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-copilot-microsoft-365-copilot-studio/", mins: "~2 hrs" },
       { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot in .NET (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/copilot-m365-extensibility/", mins: "~1.5 hrs" },
       { type: "path", label: "Learning Path", icon: "📚", title: "Build custom agents for Microsoft Teams — Teams AI Library (3 modules, advanced)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-custom-copilots-microsoft-teams/", mins: "~2 hrs" },
+      { type: "module", label: "Module", icon: "📘", title: "Get started with AI agent development on Azure", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Develop AI agents on Azure (Azure AI Foundry Agent Service)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-on-azure/", mins: "~3 hrs" },
+      { type: "module", label: "Module", icon: "📘", title: "Develop an AI agent with Semantic Kernel", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/develop-ai-agent-with-semantic-kernel/", mins: "45 min" },
       { type: "lab", label: "Hands-on", icon: "🧪", title: "Ship one custom agent or plugin into your org's Copilot", src: "Self-paced capstone", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/", mins: "Capstone" }
     ]
   }
