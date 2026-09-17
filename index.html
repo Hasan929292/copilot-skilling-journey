@@ -387,8 +387,10 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
     <div class="overall-bar"><div id="overall-fill" style="width:0%"></div></div>
     <div class="hero-actions">
       <button class="ghost-btn" id="copy-resume">Copy resume link (saves your progress)</button>
+      <button class="ghost-btn" id="report-completion" style="border-color:var(--el-gold);color:var(--el-gold);">Report your completion</button>
       <button class="ghost-btn danger" id="reset-btn">Reset progress</button>
     </div>
+    <p style="font-size:0.72rem;color:rgba(255,255,255,0.65);margin-top:10px;max-width:640px;">"Report your completion" is optional and opens a Microsoft Form in a new tab. It asks only for your name, work email, company, and which tier you finished — nothing is collected unless you choose to submit it.</p>
   </div>
 
   <div class="search-bar">
@@ -432,6 +434,7 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
       <div class="cert-btn-row">
         <button class="print-btn" id="print-cert">Print / Save as PDF</button>
         <button class="print-btn secondary" id="copy-cert">Copy certificate text</button>
+        <button class="print-btn secondary" id="report-completion-cert" style="border-color:var(--el-gold);color:var(--el-gold);">Report your completion</button>
       </div>
     </div>
   </div>
@@ -816,6 +819,14 @@ document.getElementById("copy-cert").addEventListener("click", () => {
 document.getElementById("copy-resume").addEventListener("click", () => {
   persist();
   copyText(location.href, "Resume link copied — your progress is baked in");
+});
+
+const COMPLETION_FORM_URL = "https://forms.cloud.microsoft/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRx-P_HI_jfZHp9zYFaTe11RUQUc3NFJVVVMxU1I3RVZYRERNNU9QR0NJRS4u";
+document.getElementById("report-completion").addEventListener("click", () => {
+  window.open(COMPLETION_FORM_URL, "_blank", "noopener");
+});
+document.getElementById("report-completion-cert").addEventListener("click", () => {
+  window.open(COMPLETION_FORM_URL, "_blank", "noopener");
 });
 
 let resetArmed = false;
