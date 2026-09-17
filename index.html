@@ -39,6 +39,11 @@
   --el-gold: #ad7a1e;
   --el-gold-soft: #faf1de;
   --el-gold-fg: #2a1c05;
+  /* Apple-style per-section category colors — used for wayfinding (tier identity), not brand chrome */
+  --tier-1: #0071e3;
+  --tier-2: #7a4fb5;
+  --tier-3: #cc6b00;
+  --tier-4: #c2185b;
   --font: "Segoe UI", system-ui, Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-semi: "Segoe UI Semibold", "Segoe UI", system-ui, sans-serif;
 
@@ -106,6 +111,12 @@ html[data-theme="dark"] {
   --el-gold: #e0ac4c;
   --el-gold-soft: #2b2210;
   --el-gold-fg: #241a04;
+
+  /* Apple-style per-section category colors, re-tuned for legibility on navy */
+  --tier-1: #4da3ff;
+  --tier-2: #b98bea;
+  --tier-3: #ffab4d;
+  --tier-4: #ff6fa5;
 
   /* per-content-type colors — re-tuned so each is legible against a navy background */
   --type-video: var(--el-sky);
@@ -205,32 +216,35 @@ body {
   transition: background-color .15s ease;
 }
 .badge-chip:hover { background: var(--cp-surface-soft); }
-.badge-chip.active { background: var(--cp-accent-soft); box-shadow: inset 3px 0 0 var(--el-primary); }
+.badge-chip.active { background: var(--cp-accent-soft); box-shadow: inset 3px 0 0 var(--tier-color, var(--el-primary)); }
 .badge-medal {
   width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
-  font-size: 0.78rem; font-weight: 700; flex-shrink: 0; border: 1px solid var(--cp-border-strong);
-  background: var(--cp-surface-soft); color: var(--cp-text-soft);
+  font-size: 0.78rem; font-weight: 700; flex-shrink: 0; border: 1.5px solid var(--tier-color, var(--cp-border-strong));
+  background: var(--cp-surface-soft); color: var(--tier-color, var(--cp-text-soft));
 }
 .badge-chip.earned { background: var(--el-gold-soft); }
 .badge-chip.earned .badge-medal { border-color: var(--el-gold); background: var(--el-gold); color: var(--el-gold-fg); }
 .badge-chip .bc-title { font-weight: 600; font-size: 0.92rem; }
 .badge-chip .bc-sub { font-size: 0.76rem; color: var(--cp-text-soft); }
+.tier-dot { width: 8px; height: 8px; display: inline-block; background: var(--tier-color, var(--el-primary)); margin-right: 6px; flex-shrink: 0; }
 
 /* Tabs */
 .tabs { display: flex; gap: 4px; margin-bottom: 18px; flex-wrap: wrap; border-bottom: 1px solid var(--cp-border); padding-bottom: 4px; }
 .tab-btn {
   border: none; background: transparent; color: var(--cp-text-muted);
   padding: 9px 16px; font-size: 0.85rem; cursor: pointer; font-family: inherit;
-  transition: all .15s ease;
+  transition: all .15s ease; display: inline-flex; align-items: center;
 }
-.tab-btn.active { background: var(--el-deep); color: #fff; font-family: var(--font-semi); font-weight: 600; }
+.tab-btn.active { background: var(--tier-color, var(--el-deep)); color: #fff; font-family: var(--font-semi); font-weight: 600; }
+.tab-btn.active .tier-dot { background: rgba(255,255,255,0.85); }
 .tab-btn:not(.active):hover { color: var(--cp-accent); background: var(--cp-accent-soft); }
 
 .panel { display: none; }
 .panel.active { display: block; }
 
 .panel-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-.panel-head h2 { margin: 0 0 4px; font-size: 1.15rem; font-family: var(--font-semi); font-weight: 600; }
+.panel-head h2 { margin: 0 0 4px; font-size: 1.15rem; font-family: var(--font-semi); font-weight: 600; display: flex; align-items: center; }
+.panel-head h2 .tier-dot { width: 10px; height: 10px; }
 .panel-head p { margin: 0; color: var(--cp-text-muted); font-size: 0.9rem; max-width: 560px; }
 .panel-progress { font-size: 0.82rem; color: var(--cp-text-soft); white-space: nowrap; }
 
@@ -246,7 +260,7 @@ body {
 
 /* Classroom callout */
 .callout {
-  border: 1px solid var(--cp-border); border-left: 3px solid var(--cp-accent); padding: 14px 18px; margin-bottom: 18px;
+  border: 1px solid var(--cp-border); border-left: 3px solid var(--tier-color, var(--cp-accent)); padding: 14px 18px; margin-bottom: 18px;
   background: var(--cp-surface); display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
 }
 .callout a.pill {
@@ -430,7 +444,7 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 <script>
 const TIERS = [
   {
-    id: "t1", name: "101", icon: "01", title: "Copilot 101 — Awareness", est: "~2.5 hrs total",
+    id: "t1", name: "101", icon: "01", color: "var(--tier-1)", title: "Copilot 101 — Awareness", est: "~2.5 hrs total",
     desc: "What Copilot is, safe/responsible use, and your first prompts. For everyone, no prerequisites.",
     items: [
       { type: "video", label: "Video", icon: "VD", title: "Microsoft Copilot for Organizations — Complete Tutorial", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=WclbTYaieHo", mins: "~25 min" },
@@ -444,7 +458,7 @@ const TIERS = [
     ]
   },
   {
-    id: "t2", name: "Power User", icon: "02", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~6 hrs total",
+    id: "t2", name: "Power User", icon: "02", color: "var(--tier-2)", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~6 hrs total",
     desc: "Fluent day-to-day use of Copilot across the apps people actually work in, plus role-specific use cases.",
     items: [
       { type: "path", label: "Learning Path", icon: "LP", title: "Draft, analyze, and present with Microsoft Copilot (7 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-with-microsoft-365-copilot/", mins: "~2.5 hrs" },
@@ -459,7 +473,7 @@ const TIERS = [
     ]
   },
   {
-    id: "t3", name: "Builder", icon: "03", title: "Builder — Agents in Copilot Studio (no-code)", est: "~9 hrs total",
+    id: "t3", name: "Builder", icon: "03", color: "var(--tier-3)", title: "Builder — Agents in Copilot Studio (no-code)", est: "~9 hrs total",
     desc: "Move from using Copilot to building agents with Copilot Studio — classroom-ready with a free instructor-led option.",
     items: [
       { type: "path", label: "Learning Path", icon: "LP", title: "Build a foundation to build AI agents and extend Microsoft 365 Copilot (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-foundation-extend-microsoft-365-copilot/", mins: "~1.5 hrs" },
@@ -475,7 +489,7 @@ const TIERS = [
     ]
   },
   {
-    id: "t4", name: "Developer", icon: "04", title: "Developer / Architect — Extensibility & Apps", est: "~12 hrs total",
+    id: "t4", name: "Developer", icon: "04", color: "var(--tier-4)", title: "Developer / Architect — Extensibility & Apps", est: "~12 hrs total",
     desc: "Custom agents, plugins, connectors, and full extensibility for IT pros and developers — including Azure AI Foundry.",
     items: [
       { type: "path", label: "Learning Path", icon: "LP", title: "Prepare for Microsoft 365 Copilot extensibility (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/prepare-microsoft-365-copilot-extensibility/", mins: "~1 hr" },
@@ -661,12 +675,14 @@ function renderAll() {
 
     const btn = document.createElement("button");
     btn.className = "tab-btn" + (!searchMode && ti === activeTabIndex ? " active" : "");
-    btn.textContent = tier.icon + " " + tier.name;
+    btn.style.setProperty("--tier-color", tier.color);
+    btn.innerHTML = `<span class="tier-dot"></span>${tier.icon} ${tier.name}`;
     btn.addEventListener("click", () => { searchMode = false; document.getElementById("search-input").value = ""; switchTab(ti); });
     tabsEl.appendChild(btn);
 
     const chip = document.createElement("div");
     chip.className = "badge-chip" + (st.complete ? " earned" : "") + (!searchMode && ti === activeTabIndex ? " active" : "");
+    chip.style.setProperty("--tier-color", tier.color);
     chip.addEventListener("click", () => { searchMode = false; document.getElementById("search-input").value = ""; switchTab(ti); });
     chip.innerHTML = `
       <div class="badge-medal">${st.complete ? "✓" : tier.icon}</div>
@@ -679,6 +695,7 @@ function renderAll() {
     const panel = document.createElement("div");
     panel.className = "panel" + (!searchMode && ti === activeTabIndex ? " active" : "");
     panel.id = "panel-" + tier.id;
+    panel.style.setProperty("--tier-color", tier.color);
 
     let calloutHtml = "";
     if (tier.id === "t3") {
@@ -694,7 +711,7 @@ function renderAll() {
 
     panel.innerHTML = `
       <div class="panel-head">
-        <div><h2>${tier.icon} ${tier.title}</h2><p>${tier.desc}</p></div>
+        <div><h2><span class="tier-dot"></span>${tier.icon} ${tier.title}</h2><p>${tier.desc}</p></div>
         <div class="panel-progress">${st.done} of ${st.total} complete · ${tier.est}</div>
       </div>
       ${calloutHtml}
