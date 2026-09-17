@@ -35,6 +35,10 @@
   --el-steel: #87a2c3;
   --el-lightblue: #b3cae6;
   --el-white: #ffffff;
+  /* Secondary accent — warm gold, Apple-HIG style purposeful color for achievement/reward moments only */
+  --el-gold: #ad7a1e;
+  --el-gold-soft: #faf1de;
+  --el-gold-fg: #2a1c05;
   --font: "Segoe UI", system-ui, Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
   --font-semi: "Segoe UI Semibold", "Segoe UI", system-ui, sans-serif;
 
@@ -97,6 +101,11 @@ html[data-theme="dark"] {
   --cp-panel-strong: #122438;
   --cp-sheen: transparent;
   --cp-highlight: #1a3a5c;
+
+  /* Secondary accent — brighter gold for dark backgrounds */
+  --el-gold: #e0ac4c;
+  --el-gold-soft: #2b2210;
+  --el-gold-fg: #241a04;
 
   /* per-content-type colors — re-tuned so each is legible against a navy background */
   --type-video: var(--el-sky);
@@ -202,7 +211,8 @@ body {
   font-size: 0.78rem; font-weight: 700; flex-shrink: 0; border: 1px solid var(--cp-border-strong);
   background: var(--cp-surface-soft); color: var(--cp-text-soft);
 }
-.badge-chip.earned .badge-medal { border-color: var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); }
+.badge-chip.earned { background: var(--el-gold-soft); }
+.badge-chip.earned .badge-medal { border-color: var(--el-gold); background: var(--el-gold); color: var(--el-gold-fg); }
 .badge-chip .bc-title { font-weight: 600; font-size: 0.92rem; }
 .badge-chip .bc-sub { font-size: 0.76rem; color: var(--cp-text-soft); }
 
@@ -305,11 +315,11 @@ body {
 }
 .certificate {
   width: 100%; max-width: 680px; aspect-ratio: 16/10; position: relative;
-  background: var(--cp-bg-elevated); border: 1px solid var(--cp-text); outline: 1px solid var(--cp-text); outline-offset: -6px;
+  background: var(--cp-bg-elevated); border: 1px solid var(--cp-text); outline: 1px solid var(--el-gold); outline-offset: -6px;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 30px; gap: 6px;
 }
-.certificate .cert-kicker { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.7rem; color: var(--el-steel); font-weight: 700; }
+.certificate .cert-kicker { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.7rem; color: var(--el-gold); font-weight: 700; }
 .certificate h3 { margin: 4px 0; font-size: 1.5rem; font-family: var(--font-semi); font-weight: 600; color: var(--el-navy); }
 .certificate .cert-name { font-size: 1.7rem; font-family: var(--font-semi); font-weight: 600; color: var(--el-primary); margin: 8px 0; }
 .certificate .cert-line { font-size: 0.85rem; color: var(--cp-text-muted); max-width: 420px; }
@@ -319,7 +329,7 @@ body {
   width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
   background: var(--cp-surface-soft); border: 1px solid var(--cp-border); font-size: 0.7rem; font-weight: 700; color: var(--cp-text-soft);
 }
-.cert-badges span.on { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
+.cert-badges span.on { background: var(--el-gold); border-color: var(--el-gold); color: var(--el-gold-fg); }
 .cert-btn-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .print-btn {
   border: 1px solid var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); padding: 10px 22px;
