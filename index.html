@@ -576,7 +576,7 @@ function buildCard(tier, item, idx, showTierTag) {
       <p class="res-url">${item.url}</p>
     </div>
     <div class="res-actions">
-      <a class="res-link" href="${item.url}" target="_blank" rel="noopener">Open ↗</a>
+      <button class="res-link" type="button">Open ↗</button>
       <button class="res-copy" type="button">Copy link</button>
     </div>
   `;
@@ -584,6 +584,12 @@ function buildCard(tier, item, idx, showTierTag) {
     progress[key] = !progress[key];
     persist();
     renderAll();
+  });
+  // Use a JS-driven window.open instead of an <a href> so hosts that rewrite
+  // dynamically-inserted anchor hrefs (e.g. base-path injection) can't break external links.
+  card.querySelector(".res-link").addEventListener("click", () => {
+    const win = window.open(item.url, "_blank", "noopener");
+    if (!win) copyText(item.url, "Pop-up blocked — link copied instead");
   });
   card.querySelector(".res-copy").addEventListener("click", () => copyText(item.url, "Link copied"));
   return card;
