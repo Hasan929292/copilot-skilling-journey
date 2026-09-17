@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Copilot Skilling Journey</title>
+<script>
+  (() => {
+    const param = new URLSearchParams(window.location.search).get("scoutTheme");
+    const theme =
+      param || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+    document.documentElement.setAttribute("data-theme", theme);
+  })();
+</script>
+<style>
+:root {
+  color-scheme: light;
+  --cp-bg: #f7f4ef;
+  --cp-bg-elevated: #fcfbf8;
+  --cp-surface: #ffffff;
+  --cp-surface-soft: #f5f5f5;
+  --cp-border: #dedede;
+  --cp-border-strong: #919191;
+  --cp-text: #242424;
+  --cp-text-muted: #5c5c5c;
+  --cp-text-soft: #6f6f6f;
+  --cp-accent: #b11f4b;
+  --cp-accent-hover: #9a1a41;
+  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-accent-fg: #ffffff;
+  --cp-success: #16a34a;
+  --cp-danger: #dc2626;
+  --cp-warning: #f59e0b;
+  --cp-link: #0078d4;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
+  --cp-overlay: rgba(255, 255, 255, 0.8);
+  --cp-panel: rgba(255, 255, 255, 0.86);
+  --cp-panel-strong: rgba(255, 255, 255, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.55);
+  --cp-highlight: rgba(177, 31, 75, 0.12);
+}
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --cp-bg: #3d3b3a;
+  --cp-bg-elevated: #343231;
+  --cp-surface: #292929;
+  --cp-surface-soft: #2e2e2e;
+  --cp-border: #474747;
+  --cp-border-strong: #5f5f5f;
+  --cp-text: #dedede;
+  --cp-text-muted: #919191;
+  --cp-text-soft: #b0b0b0;
+  --cp-accent: #fd8ea1;
+  --cp-accent-hover: #fb7b91;
+  --cp-accent-soft: rgba(253, 142, 161, 0.14);
+  --cp-accent-fg: #1a1a1a;
+  --cp-success: #4ade80;
+  --cp-danger: #f87171;
+  --cp-warning: #fbbf24;
+  --cp-link: #4da6ff;
+  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
+  --cp-overlay: rgba(41, 41, 41, 0.88);
+  --cp-panel: rgba(41, 41, 41, 0.72);
+  --cp-panel-strong: rgba(41, 41, 41, 0.96);
+  --cp-sheen: rgba(255, 255, 255, 0.04);
+  --cp-highlight: rgba(253, 142, 161, 0.12);
+}
+
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--cp-bg);
+  color: var(--cp-text);
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+.wrap { max-width: 1080px; margin: 0 auto; padding: 24px 20px 64px; }
+
+/* Banner */
+.compat-note {
+  background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 12px;
+  padding: 10px 16px; margin-bottom: 16px; font-size: 0.8rem; color: var(--cp-text-muted);
+  display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+}
+.compat-note b { color: var(--cp-text); }
+.compat-note button {
+  margin-left: auto; border: 1px solid var(--cp-border); background: transparent; color: var(--cp-text-muted);
+  border-radius: 999px; padding: 4px 12px; font-size: 0.75rem; cursor: pointer; font-family: inherit;
+}
+
+/* Header */
+.hero {
+  background: var(--cp-bg-elevated);
+  border: 1px solid var(--cp-border);
+  border-radius: 16px;
+  box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+  padding: 28px 30px;
+  margin-bottom: 18px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -60px; top: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: var(--cp-accent-soft);
+}
+.hero h1 { margin: 0 0 6px; font-size: 1.7rem; letter-spacing: -0.01em; position: relative; }
+.hero p { margin: 0; color: var(--cp-text-muted); max-width: 640px; position: relative; }
+.hero-meta { display: flex; gap: 22px; margin-top: 18px; flex-wrap: wrap; position: relative; }
+.hero-stat { display: flex; flex-direction: column; }
+.hero-stat b { font-size: 1.35rem; }
+.hero-stat span { font-size: 0.78rem; color: var(--cp-text-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+.overall-bar {
+  margin-top: 16px; height: 8px; border-radius: 6px; background: var(--cp-surface-soft);
+  overflow: hidden; position: relative; border: 1px solid var(--cp-border);
+}
+.overall-bar > div { height: 100%; background: var(--cp-accent); transition: width .4s ease; }
+.hero-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; position: relative; }
+.ghost-btn {
+  border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text);
+  padding: 8px 14px; border-radius: 999px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.ghost-btn:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+.ghost-btn.danger:hover { border-color: var(--cp-danger); color: var(--cp-danger); }
+.toast {
+  position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);
+  background: var(--cp-text); color: var(--cp-bg); padding: 9px 18px; border-radius: 999px;
+  font-size: 0.82rem; opacity: 0; transition: all .25s ease; pointer-events: none; z-index: 50;
+  box-shadow: var(--cp-shadow);
+}
+.toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+/* Search */
+.search-bar {
+  display: flex; align-items: center; gap: 10px; background: var(--cp-surface); border: 1px solid var(--cp-border);
+  border-radius: 999px; padding: 8px 16px; margin-bottom: 18px;
+}
+.search-bar input {
+  border: none; outline: none; background: transparent; color: var(--cp-text); font-family: inherit;
+  font-size: 0.92rem; flex: 1;
+}
+.search-bar .sx { color: var(--cp-text-soft); font-size: 0.8rem; cursor: pointer; display: none; }
+
+/* Badge rail */
+.badge-rail { display: flex; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+.badge-chip {
+  flex: 1; min-width: 150px;
+  background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px;
+  padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;
+  box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+  transition: border-color .15s ease, transform .15s ease;
+}
+.badge-chip:hover { border-color: var(--cp-accent); transform: translateY(-1px); }
+.badge-chip.active { border-color: var(--cp-accent); background: var(--cp-accent-soft); }
+.badge-medal {
+  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem; flex-shrink: 0; border: 2px solid var(--cp-border-strong);
+  background: var(--cp-surface-soft); color: var(--cp-text-soft);
+}
+.badge-chip.earned .badge-medal { border-color: var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); }
+.badge-chip .bc-title { font-weight: 600; font-size: 0.92rem; }
+.badge-chip .bc-sub { font-size: 0.76rem; color: var(--cp-text-soft); }
+
+/* Tabs */
+.tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.tab-btn {
+  border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text-muted);
+  padding: 9px 16px; border-radius: 999px; font-size: 0.86rem; cursor: pointer; font-family: inherit;
+  transition: all .15s ease;
+}
+.tab-btn.active { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); font-weight: 600; }
+.tab-btn:not(.active):hover { border-color: var(--cp-accent); color: var(--cp-text); }
+
+.panel { display: none; }
+.panel.active { display: block; animation: fadeIn .25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;} }
+
+.panel-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
+.panel-head h2 { margin: 0 0 4px; font-size: 1.25rem; }
+.panel-head p { margin: 0; color: var(--cp-text-muted); font-size: 0.9rem; max-width: 560px; }
+.panel-progress { font-size: 0.82rem; color: var(--cp-text-soft); white-space: nowrap; }
+
+/* Legend */
+.legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.78rem; color: var(--cp-text-soft); }
+.legend span { display: inline-flex; align-items: center; gap: 5px; }
+
+/* Classroom callout */
+.callout {
+  border: 1px dashed var(--cp-border-strong); border-radius: 14px; padding: 14px 18px; margin-bottom: 18px;
+  background: var(--cp-surface); display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
+}
+.callout .co-icon { font-size: 1.4rem; }
+.callout a.pill {
+  text-decoration: none; font-size: 0.8rem; padding: 6px 12px; border-radius: 999px;
+  background: var(--cp-accent-soft); color: var(--cp-accent); border: 1px solid var(--cp-accent);
+  font-weight: 600; white-space: nowrap;
+}
+.callout a.pill:hover { background: var(--cp-accent); color: var(--cp-accent-fg); }
+
+/* Cards */
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.res-card {
+  display: flex; align-items: flex-start; gap: 14px;
+  background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 14px;
+  padding: 14px 16px; box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+  transition: border-color .15s ease;
+}
+.res-card:hover { border-color: var(--cp-border-strong); }
+.res-card.done { opacity: 0.62; }
+.res-check {
+  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--cp-border-strong);
+  flex-shrink: 0; margin-top: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center;
+  background: var(--cp-surface); font-size: 0.8rem; color: transparent;
+}
+.res-check.checked { background: var(--cp-success); border-color: var(--cp-success); color: #fff; }
+.res-type {
+  flex-shrink: 0; font-size: 1.1rem; width: 34px; height: 34px; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center; background: var(--cp-surface-soft);
+  border: 1px solid var(--cp-border);
+}
+.res-body { flex: 1; min-width: 0; }
+.res-title { font-weight: 600; font-size: 0.94rem; margin: 0 0 2px; }
+.res-meta { font-size: 0.78rem; color: var(--cp-text-soft); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
+.res-tier-tag { font-size: 0.7rem; color: var(--cp-accent); font-weight: 600; }
+.tag {
+  font-size: 0.7rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--cp-border);
+  color: var(--cp-text-muted); text-transform: uppercase; letter-spacing: 0.03em;
+}
+.res-url {
+  font-size: 0.72rem; color: var(--cp-text-soft); word-break: break-all; margin: 0;
+  font-family: Consolas, "Courier New", Courier, monospace;
+}
+.res-actions { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
+.res-link, .res-copy {
+  text-decoration: none; font-size: 0.78rem; font-weight: 600; color: var(--cp-link);
+  border: 1px solid var(--cp-border); padding: 6px 12px; border-radius: 999px; white-space: nowrap;
+  background: var(--cp-surface); cursor: pointer; font-family: inherit; text-align: center;
+}
+.res-link:hover, .res-copy:hover { border-color: var(--cp-link); }
+
+/* Certificate */
+.cert-wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+.cert-input {
+  width: 100%; max-width: 360px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--cp-border);
+  background: var(--cp-surface); color: var(--cp-text); font-family: inherit; font-size: 0.95rem;
+}
+.certificate {
+  width: 100%; max-width: 680px; aspect-ratio: 16/10; border-radius: 16px; position: relative;
+  background: var(--cp-bg-elevated); border: 3px solid var(--cp-accent);
+  box-shadow: var(--cp-shadow); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 30px; gap: 6px;
+}
+.certificate .cert-kicker { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.72rem; color: var(--cp-accent); font-weight: 700; }
+.certificate h3 { margin: 4px 0; font-size: 1.6rem; }
+.certificate .cert-name { font-size: 1.9rem; font-weight: 700; color: var(--cp-accent); margin: 6px 0; font-family: Georgia, serif; }
+.certificate .cert-line { font-size: 0.85rem; color: var(--cp-text-muted); max-width: 420px; }
+.certificate .cert-date { font-size: 0.72rem; color: var(--cp-text-soft); margin-top: 8px; }
+.cert-badges { display: flex; gap: 10px; margin-top: 12px; }
+.cert-badges span {
+  width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--cp-surface-soft); border: 2px solid var(--cp-border); font-size: 1rem; color: var(--cp-text-soft);
+}
+.cert-badges span.on { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
+.cert-btn-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
+.print-btn {
+  border: none; background: var(--cp-accent); color: var(--cp-accent-fg); padding: 10px 22px; border-radius: 999px;
+  font-family: inherit; font-weight: 600; font-size: 0.88rem; cursor: pointer;
+}
+.print-btn:hover { background: var(--cp-accent-hover); }
+.print-btn.secondary { background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); }
+.print-btn.secondary:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
+
+footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); text-align: center; line-height: 1.6; }
+.empty-state { text-align: center; padding: 40px 20px; color: var(--cp-text-soft); }
+
+@media print {
+  .hero, .badge-rail, .tabs, .callout, .card-grid, footer, .cert-input, .cert-btn-row, .compat-note, .search-bar, .legend { display: none !important; }
+  #panel-cert { display: block !important; }
+  .cert-wrap { padding-top: 40px; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="compat-note">
+    <span>📎 <b>Sharing this file:</b> works fully when opened directly in a browser. If viewed through a OneDrive/SharePoint preview link, some outbound clicks may be blocked — use the "Copy link" button on any item instead.</span>
+    <button id="dismiss-note">Got it</button>
+  </div>
+
+  <div class="hero">
+    <h1>🚀 Copilot Skilling Journey</h1>
+    <p>101 → Power User → Builder (Agents) → Developer (Apps). Mixed videos, Microsoft Learn modules, and hands-on labs — check items off as you go and earn a badge per tier.</p>
+    <div class="hero-meta">
+      <div class="hero-stat"><b id="stat-done">0</b><span>Items complete</span></div>
+      <div class="hero-stat"><b id="stat-total">0</b><span>Total items</span></div>
+      <div class="hero-stat"><b id="stat-badges">0 / 4</b><span>Badges earned</span></div>
+    </div>
+    <div class="overall-bar"><div id="overall-fill" style="width:0%"></div></div>
+    <div class="hero-actions">
+      <button class="ghost-btn" id="copy-resume">🔗 Copy resume link (saves your progress)</button>
+      <button class="ghost-btn danger" id="reset-btn">↺ Reset progress</button>
+    </div>
+  </div>
+
+  <div class="search-bar">
+    <span>🔎</span>
+    <input id="search-input" placeholder="Search all videos, modules, and labs across every tier..." />
+    <span class="sx" id="search-clear">Clear ✕</span>
+  </div>
+
+  <div class="legend">
+    <span>🎥 Video</span><span>📘 Learn module</span><span>📚 Learn path</span><span>🧪 Hands-on lab</span><span>🏫 Instructor-led classroom</span>
+  </div>
+
+  <div class="badge-rail" id="badge-rail"></div>
+
+  <div class="tabs" id="tabs"></div>
+
+  <div id="panels"></div>
+
+  <div class="panel" id="panel-search">
+    <div class="panel-head"><div><h2>🔎 Search results</h2><p id="search-summary"></p></div></div>
+    <div class="card-grid" id="search-grid"></div>
+  </div>
+
+  <div class="panel" id="panel-cert">
+    <div class="panel-head">
+      <div>
+        <h2>🏅 Your Certificate</h2>
+        <p>Enter your name and print/save as PDF once all four badges are earned (or anytime, as a progress snapshot).</p>
+      </div>
+    </div>
+    <div class="cert-wrap">
+      <input class="cert-input" id="cert-name" placeholder="Type your full name..." />
+      <div class="certificate">
+        <div class="cert-kicker">Copilot Skilling Journey</div>
+        <h3>Certificate of Completion</h3>
+        <div class="cert-name" id="cert-name-out">Your Name</div>
+        <div class="cert-line">has completed the Copilot 101 → Power User → Builder → Developer learning journey, covering Microsoft 365 Copilot, Copilot Studio agents, and Copilot extensibility.</div>
+        <div class="cert-badges" id="cert-badges"></div>
+        <div class="cert-date" id="cert-date"></div>
+      </div>
+      <div class="cert-btn-row">
+        <button class="print-btn" id="print-cert">🖨️ Print / Save as PDF</button>
+        <button class="print-btn secondary" id="copy-cert">📋 Copy certificate text</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+
+  <footer class="note">Progress is saved in this browser and mirrored into the page URL so it survives sharing and reloads.<br>Sources: Microsoft Learn (learn.microsoft.com) + YouTube (Microsoft Learn, Microsoft Community Learning, and vetted community creators).</footer>
+</div>
+
+<script>
+const TIERS = [
+  {
+    id: "t1", name: "101", icon: "🌱", title: "Copilot 101 — Awareness", est: "~1.5 hrs total",
+    desc: "What Copilot is, safe/responsible use, and your first prompts. For everyone, no prerequisites.",
+    items: [
+      { type: "video", label: "Video", icon: "🎥", title: "Microsoft Copilot for Organizations — Complete Tutorial", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=WclbTYaieHo", mins: "~25 min" },
+      { type: "video", label: "Video", icon: "🎥", title: "Microsoft 365 Copilot Tutorial — Beginner's Guide", src: "Mike Tholfsen · YouTube", url: "https://www.youtube.com/watch?v=JbOJliF-Cn4", mins: "~15 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Get ready to work with Microsoft Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-ready-work-microsoft-365-copilot/", mins: "20 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Craft effective prompts for Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/craft-effective-prompts-microsoft-365-copilot/", mins: "25 min" },
+      { type: "lab", label: "Hands-on", icon: "🧪", title: "Try Copilot Chat with 3 real prompts from your own inbox or calendar", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "15 min" }
+    ]
+  },
+  {
+    id: "t2", name: "Power User", icon: "⚡", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~4 hrs total",
+    desc: "Fluent day-to-day use of Copilot across the apps people actually work in.",
+    items: [
+      { type: "path", label: "Learning Path", icon: "📚", title: "Draft, analyze, and present with Microsoft Copilot (7 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-with-microsoft-365-copilot/", mins: "~2.5 hrs" },
+      { type: "video", label: "Video", icon: "🎥", title: "Copilot Chat vs Microsoft 365 Copilot: What's the Difference?", src: "Chris Menard · YouTube", url: "https://www.youtube.com/watch?v=vDOjRBeMmiU", mins: "~10 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Build effective presentations with AI (PowerPoint + Idea Coach)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/present-copilot-microsoft-powerpoint/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Make your meetings more productive with AI (Teams + Facilitator)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/make-your-meetings-more-productive-ai/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "📘", title: "Uncover new data insights with AI (Excel + Analyst agent)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/uncover-new-data-insights-ai/", mins: "30 min" },
+      { type: "lab", label: "Hands-on", icon: "🧪", title: "Draft one real document/deck/analysis for your own work using Copilot", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "30 min" }
+    ]
+  },
+  {
+    id: "t3", name: "Builder", icon: "🛠️", title: "Builder — Agents in Copilot Studio (no-code)", est: "~7 hrs total",
+    desc: "Move from using Copilot to building agents with Copilot Studio — classroom-ready with a free instructor-led option.",
+    items: [
+      { type: "path", label: "Learning Path", icon: "📚", title: "Build a foundation to build AI agents and extend Microsoft 365 Copilot (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-foundation-extend-microsoft-365-copilot/", mins: "~1.5 hrs" },
+      { type: "video", label: "Video", icon: "🎥", title: "How to Build an AI Agent with Microsoft 365 Copilot (No-Code Step-by-Step)", src: "Teacher's Tech · YouTube", url: "https://www.youtube.com/watch?v=Iz3ul6hSeTs", mins: "~18 min" },
+      { type: "video", label: "Video", icon: "🎥", title: "How to Use Microsoft Copilot Studio (Step-by-Step Tutorial)", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=dX9MJM5EokE", mins: "~20 min" },
+      { type: "classroom", label: "Classroom", icon: "🏫", title: "Agent in a Day — free instructor-led workshop (register)", src: "Microsoft, in-person/virtual", url: "https://aka.ms/nextAgIAD", mins: "Half-day" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Agent in a Day — Online Workshop companion (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/agents-online-workshop/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot in Copilot Studio — declarative agents (5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-365-copilot-studio/", mins: "~2 hrs" },
+      { type: "lab", label: "Hands-on", icon: "🧪", title: "Build and publish one declarative agent for your team", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent", mins: "45 min" }
+    ]
+  },
+  {
+    id: "t4", name: "Developer", icon: "🧑‍💻", title: "Developer / Architect — Extensibility & Apps", est: "~8 hrs total",
+    desc: "Custom agents, plugins, connectors, and full extensibility for IT pros and developers.",
+    items: [
+      { type: "path", label: "Learning Path", icon: "📚", title: "Prepare for Microsoft 365 Copilot extensibility (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/prepare-microsoft-365-copilot-extensibility/", mins: "~1 hr" },
+      { type: "video", label: "Video", icon: "🎥", title: "Copilot Extensibility Fundamentals — MS-4010, Episode 2", src: "Microsoft Learn · YouTube", url: "https://www.youtube.com/watch?v=qyUTEhI91Yo", mins: "~15 min" },
+      { type: "video", label: "Video", icon: "🎥", title: "Create your first Declarative Agent for Microsoft 365 Copilot", src: "Microsoft Community Learning · YouTube", url: "https://www.youtube.com/watch?v=VDhRFMH3Qbs", mins: "~20 min" },
+      { type: "video", label: "Video", icon: "🎥", title: "Connected Declarative Agents for Microsoft 365 Copilot", src: "Microsoft Community Learning · YouTube", url: "https://www.youtube.com/watch?v=vx1-4y-xxXY", mins: "~15 min" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot with Copilot Studio actions and connectors (MS-4009, 5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-copilot-microsoft-365-copilot-studio/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot in .NET (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/copilot-m365-extensibility/", mins: "~1.5 hrs" },
+      { type: "path", label: "Learning Path", icon: "📚", title: "Build custom agents for Microsoft Teams — Teams AI Library (3 modules, advanced)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-custom-copilots-microsoft-teams/", mins: "~2 hrs" },
+      { type: "lab", label: "Hands-on", icon: "🧪", title: "Ship one custom agent or plugin into your org's Copilot", src: "Self-paced capstone", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/", mins: "Capstone" }
+    ]
+  }
+];
+
+/* ---------- storage: hash-first, localStorage best-effort ---------- */
+const STORE_KEY = "cj_progress";
+const STORE_NAME_KEY = "cj_name";
+
+function hasLocalStorage() {
+  try {
+    const k = "__cj_test__";
+    localStorage.setItem(k, "1");
+    localStorage.removeItem(k);
+    return true;
+  } catch (e) { return false; }
+}
+const LS_OK = hasLocalStorage();
+
+function getFlatKeys() {
+  const flat = [];
+  TIERS.forEach(t => t.items.forEach((_, i) => flat.push(t.id + "-" + i)));
+  return flat;
+}
+const FLAT_KEYS = getFlatKeys();
+
+function parseHashState() {
+  const out = { prog: {}, name: "" };
+  if (!location.hash || location.hash.length < 2) return out;
+  try {
+    const raw = location.hash.slice(1);
+    const params = new URLSearchParams(raw);
+    const bits = params.get("p") || "";
+    FLAT_KEYS.forEach((k, i) => { if (bits[i] === "1") out.prog[k] = true; });
+    const n = params.get("n");
+    if (n) out.name = decodeURIComponent(n);
+  } catch (e) {}
+  return out;
+}
+
+function loadInitialState() {
+  const fromHash = parseHashState();
+  if (Object.keys(fromHash.prog).length > 0 || fromHash.name) return fromHash;
+  if (LS_OK) {
+    try {
+      const stored = JSON.parse(localStorage.getItem(STORE_KEY) || "{}");
+      const name = localStorage.getItem(STORE_NAME_KEY) || "";
+      return { prog: stored, name };
+    } catch (e) {}
+  }
+  return { prog: {}, name: "" };
+}
+
+let progress = {};
+let certName = "";
+{
+  const init = loadInitialState();
+  progress = init.prog;
+  certName = init.name;
+}
+
+function persist() {
+  const bits = FLAT_KEYS.map(k => (progress[k] ? "1" : "0")).join("");
+  try {
+    location.hash = "p=" + bits + (certName ? "&n=" + encodeURIComponent(certName) : "");
+  } catch (e) {}
+  if (LS_OK) {
+    try {
+      localStorage.setItem(STORE_KEY, JSON.stringify(progress));
+      localStorage.setItem(STORE_NAME_KEY, certName);
+    } catch (e) {}
+  }
+}
+
+/* ---------- toast ---------- */
+let toastTimer = null;
+function showToast(msg) {
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove("show"), 2200);
+}
+
+/* ---------- clipboard fallback ---------- */
+function copyText(text, okMsg) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(
+      () => showToast(okMsg || "Copied!"),
+      () => legacyCopy(text, okMsg)
+    );
+  } else {
+    legacyCopy(text, okMsg);
+  }
+}
+function legacyCopy(text, okMsg) {
+  try {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.style.position = "fixed";
+    ta.style.opacity = "0";
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    document.execCommand("copy");
+    document.body.removeChild(ta);
+    showToast(okMsg || "Copied!");
+  } catch (e) {
+    showToast("Copy the URL manually: " + text);
+  }
+}
+
+/* ---------- stats ---------- */
+function itemKey(tierId, idx) { return tierId + "-" + idx; }
+function tierStats(tier) {
+  const total = tier.items.length;
+  const done = tier.items.filter((_, i) => progress[itemKey(tier.id, i)]).length;
+  return { total, done, pct: total ? Math.round((done / total) * 100) : 0, complete: total > 0 && done === total };
+}
+
+/* ---------- resource card builder ---------- */
+function buildCard(tier, item, idx, showTierTag) {
+  const key = itemKey(tier.id, idx);
+  const checked = !!progress[key];
+  const card = document.createElement("div");
+  card.className = "res-card" + (checked ? " done" : "");
+  card.innerHTML = `
+    <div class="res-check ${checked ? "checked" : ""}" data-key="${key}">${checked ? "✓" : ""}</div>
+    <div class="res-type">${item.icon}</div>
+    <div class="res-body">
+      ${showTierTag ? `<div class="res-tier-tag">${tier.icon} ${tier.title}</div>` : ""}
+      <p class="res-title">${item.title}</p>
+      <div class="res-meta"><span class="tag">${item.label}</span><span>${item.src}</span><span>· ${item.mins}</span></div>
+      <p class="res-url">${item.url}</p>
+    </div>
+    <div class="res-actions">
+      <a class="res-link" href="${item.url}" target="_blank" rel="noopener">Open ↗</a>
+      <button class="res-copy" type="button">Copy link</button>
+    </div>
+  `;
+  card.querySelector(".res-check").addEventListener("click", () => {
+    progress[key] = !progress[key];
+    persist();
+    renderAll();
+  });
+  card.querySelector(".res-copy").addEventListener("click", () => copyText(item.url, "Link copied"));
+  return card;
+}
+
+/* ---------- main render ---------- */
+let activeTabIndex = 0;
+let searchMode = false;
+
+function renderAll() {
+  const tabsEl = document.getElementById("tabs");
+  const panelsEl = document.getElementById("panels");
+  const railEl = document.getElementById("badge-rail");
+  tabsEl.innerHTML = ""; panelsEl.innerHTML = ""; railEl.innerHTML = "";
+
+  let totalAll = 0, doneAll = 0, badgesEarned = 0;
+
+  TIERS.forEach((tier, ti) => {
+    const st = tierStats(tier);
+    totalAll += st.total; doneAll += st.done;
+    if (st.complete) badgesEarned++;
+
+    const btn = document.createElement("button");
+    btn.className = "tab-btn" + (!searchMode && ti === activeTabIndex ? " active" : "");
+    btn.textContent = tier.icon + " " + tier.name;
+    btn.addEventListener("click", () => { searchMode = false; document.getElementById("search-input").value = ""; switchTab(ti); });
+    tabsEl.appendChild(btn);
+
+    const chip = document.createElement("div");
+    chip.className = "badge-chip" + (st.complete ? " earned" : "") + (!searchMode && ti === activeTabIndex ? " active" : "");
+    chip.addEventListener("click", () => { searchMode = false; document.getElementById("search-input").value = ""; switchTab(ti); });
+    chip.innerHTML = `
+      <div class="badge-medal">${st.complete ? "✓" : tier.icon}</div>
+      <div>
+        <div class="bc-title">${tier.name}</div>
+        <div class="bc-sub">${st.done}/${st.total} · ${st.pct}%</div>
+      </div>`;
+    railEl.appendChild(chip);
+
+    const panel = document.createElement("div");
+    panel.className = "panel" + (!searchMode && ti === activeTabIndex ? " active" : "");
+    panel.id = "panel-" + tier.id;
+
+    let calloutHtml = "";
+    if (tier.id === "t3") {
+      calloutHtml = `<div class="callout"><span class="co-icon">🏫</span>
+        <div><strong>Classroom-ready:</strong> Agent in a Day is Microsoft's free instructor-led workshop — perfect for running this tier as an in-person session.</div>
+        <a class="pill" href="https://aka.ms/nextAgIAD" target="_blank" rel="noopener">Register an event →</a></div>`;
+    }
+    if (tier.id === "t4") {
+      calloutHtml = `<div class="callout"><span class="co-icon">🏫</span>
+        <div><strong>Also available:</strong> Copilot Studio in a Day instructor-led course for developer/IT audiences.</div>
+        <a class="pill" href="https://aka.ms/nextcsiad" target="_blank" rel="noopener">Browse training events →</a></div>`;
+    }
+
+    panel.innerHTML = `
+      <div class="panel-head">
+        <div><h2>${tier.icon} ${tier.title}</h2><p>${tier.desc}</p></div>
+        <div class="panel-progress">${st.done} of ${st.total} complete · ${tier.est}</div>
+      </div>
+      ${calloutHtml}
+      <div class="card-grid" id="grid-${tier.id}"></div>
+    `;
+    panelsEl.appendChild(panel);
+
+    const grid = panel.querySelector("#grid-" + tier.id);
+    tier.items.forEach((item, idx) => grid.appendChild(buildCard(tier, item, idx, false)));
+  });
+
+  document.getElementById("stat-done").textContent = doneAll;
+  document.getElementById("stat-total").textContent = totalAll;
+  document.getElementById("stat-badges").textContent = badgesEarned + " / " + TIERS.length;
+  document.getElementById("overall-fill").style.width = (totalAll ? Math.round((doneAll / totalAll) * 100) : 0) + "%";
+
+  const certBadges = document.getElementById("cert-badges");
+  certBadges.innerHTML = TIERS.map(t => {
+    const s = tierStats(t);
+    return `<span class="${s.complete ? "on" : ""}" title="${t.name}">${t.icon}</span>`;
+  }).join("");
+
+  document.getElementById("panel-search").classList.toggle("active", searchMode);
+  document.getElementById("panel-cert").classList.remove("active");
+}
+
+function switchTab(index) {
+  activeTabIndex = index;
+  searchMode = false;
+  renderAll();
+}
+
+function showCertificate() {
+  searchMode = false;
+  renderAll();
+  document.querySelectorAll(".panel").forEach(p => p.classList.remove("active"));
+  document.getElementById("panel-cert").classList.add("active");
+  document.querySelectorAll(".tab-btn, .badge-chip").forEach(el => el.classList.remove("active"));
+}
+
+/* ---------- search ---------- */
+function runSearch(q) {
+  const query = q.trim().toLowerCase();
+  const clearBtn = document.getElementById("search-clear");
+  if (!query) {
+    searchMode = false;
+    clearBtn.style.display = "none";
+    renderAll();
+    return;
+  }
+  searchMode = true;
+  clearBtn.style.display = "inline";
+  renderAll();
+  const grid = document.getElementById("search-grid");
+  grid.innerHTML = "";
+  let matchCount = 0;
+  TIERS.forEach(tier => {
+    tier.items.forEach((item, idx) => {
+      const hay = (item.title + " " + item.src + " " + item.label + " " + tier.name).toLowerCase();
+      if (hay.includes(query)) {
+        matchCount++;
+        grid.appendChild(buildCard(tier, item, idx, true));
+      }
+    });
+  });
+  document.getElementById("search-summary").textContent = matchCount
+    ? matchCount + " result" + (matchCount === 1 ? "" : "s") + " for \u201c" + q + "\u201d"
+    : "No results for \u201c" + q + "\u201d — try a different keyword.";
+  if (!matchCount) {
+    grid.innerHTML = '<div class="empty-state">Nothing matched. Try "agent", "excel", "studio", or "developer".</div>';
+  }
+}
+
+/* ---------- wire up ---------- */
+document.getElementById("search-input").addEventListener("input", (e) => runSearch(e.target.value));
+document.getElementById("search-clear").addEventListener("click", () => {
+  document.getElementById("search-input").value = "";
+  runSearch("");
+});
+
+document.getElementById("cert-name").value = certName;
+document.getElementById("cert-name-out").textContent = certName || "Your Name";
+document.getElementById("cert-name").addEventListener("input", (e) => {
+  certName = e.target.value.trim();
+  document.getElementById("cert-name-out").textContent = certName || "Your Name";
+  persist();
+});
+document.getElementById("cert-date").textContent = "Issued " + new Date().toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
+
+document.getElementById("print-cert").addEventListener("click", () => {
+  try { window.print(); } catch (e) { showToast("Printing isn't available in this preview — try opening the file directly."); }
+});
+document.getElementById("copy-cert").addEventListener("click", () => {
+  const earned = TIERS.filter(t => tierStats(t).complete).map(t => t.name);
+  const text = "Copilot Skilling Journey — Certificate of Completion\n" +
+    (certName || "Your Name") + "\n" +
+    "Badges earned: " + (earned.length ? earned.join(", ") : "none yet") + "\n" +
+    "Issued " + new Date().toLocaleDateString();
+  copyText(text, "Certificate text copied");
+});
+
+document.getElementById("copy-resume").addEventListener("click", () => {
+  persist();
+  copyText(location.href, "Resume link copied — your progress is baked in");
+});
+
+let resetArmed = false;
+const resetBtn = document.getElementById("reset-btn");
+resetBtn.addEventListener("click", () => {
+  if (!resetArmed) {
+    resetArmed = true;
+    resetBtn.textContent = "⚠️ Click again to confirm reset";
+    setTimeout(() => { resetArmed = false; resetBtn.textContent = "↺ Reset progress"; }, 3000);
+    return;
+  }
+  progress = {};
+  certName = "";
+  document.getElementById("cert-name").value = "";
+  document.getElementById("cert-name-out").textContent = "Your Name";
+  try { location.hash = ""; } catch (e) {}
+  if (LS_OK) {
+    try { localStorage.removeItem(STORE_KEY); localStorage.removeItem(STORE_NAME_KEY); } catch (e) {}
+  }
+  resetArmed = false;
+  resetBtn.textContent = "↺ Reset progress";
+  renderAll();
+  showToast("Progress reset");
+});
+
+document.getElementById("dismiss-note").addEventListener("click", (e) => {
+  e.target.closest(".compat-note").style.display = "none";
+});
+
+/* certificate tab entry point: reuse a tab-like button appended after render */
+(function addCertTabButton() {
+  const tabsEl = document.getElementById("tabs");
+  const btn = document.createElement("button");
+  btn.className = "tab-btn";
+  btn.textContent = "🏅 Certificate";
+  btn.addEventListener("click", showCertificate);
+  // append after initial render each time tabs redraw
+  const origRender = renderAll;
+  window.__addCertBtn = () => {
+    if (!document.getElementById("cert-tab-btn")) {
+      btn.id = "cert-tab-btn";
+      tabsEl.appendChild(btn);
+    }
+  };
+})();
+
+const _origRenderAll = renderAll;
+renderAll = function () {
+  _origRenderAll();
+  window.__addCertBtn && window.__addCertBtn();
+};
+
+renderAll();
+</script>
+</body>
+</html>
