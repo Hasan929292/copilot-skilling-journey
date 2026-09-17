@@ -61,6 +61,16 @@
   --cp-panel-strong: #ffffff;
   --cp-sheen: transparent;
   --cp-highlight: #e3edf9;
+
+  /* per-content-type colors — tuned for contrast against light bg */
+  --type-video: var(--el-primary);
+  --type-module: var(--el-mid);
+  --type-path: var(--el-deep);
+  --type-lab: var(--el-steel);
+  --type-lab-text: var(--el-navy);
+  --type-lab-notch: var(--el-navy);
+  --type-classroom: var(--el-navy);
+  --type-classroom-ring: #ffffff;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
@@ -87,6 +97,16 @@ html[data-theme="dark"] {
   --cp-panel-strong: #122438;
   --cp-sheen: transparent;
   --cp-highlight: #1a3a5c;
+
+  /* per-content-type colors — re-tuned so each is legible against a navy background */
+  --type-video: var(--el-sky);
+  --type-module: #4a7fc4;
+  --type-path: var(--el-lightblue);
+  --type-lab: var(--el-steel);
+  --type-lab-text: var(--el-navy);
+  --type-lab-notch: var(--el-navy);
+  --type-classroom: var(--el-primary);
+  --type-classroom-ring: #ffffff;
 }
 
 * { box-sizing: border-box; }
@@ -205,14 +225,14 @@ body {
 .panel-progress { font-size: 0.82rem; color: var(--cp-text-soft); white-space: nowrap; }
 
 /* Legend */
-.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.76rem; color: var(--cp-text-soft); }
-.legend span { display: inline-flex; align-items: center; gap: 6px; }
-.legend .lg-dot { width: 9px; height: 9px; background: var(--cp-border-strong); display: inline-block; flex-shrink: 0; }
-.legend .lg-dot.type-video     { background: var(--el-primary); }
-.legend .lg-dot.type-module    { background: var(--el-mid); }
-.legend .lg-dot.type-path      { background: var(--el-deep); transform: rotate(45deg); }
-.legend .lg-dot.type-lab       { width: 0; height: 0; background: transparent; border-left: 5px solid transparent; border-right: 5px solid transparent; border-bottom: 9px solid var(--el-steel); }
-.legend .lg-dot.type-classroom { background: var(--el-navy); box-shadow: inset 0 0 0 2px #ffffff; }
+.legend { display: flex; gap: 18px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.8rem; color: var(--cp-text-muted); align-items: center; }
+.legend span { display: inline-flex; align-items: center; gap: 8px; }
+.legend .lg-dot { width: 14px; height: 14px; background: var(--cp-border-strong); display: inline-block; flex-shrink: 0; }
+.legend .lg-dot.type-video     { background: var(--type-video); }
+.legend .lg-dot.type-module    { background: var(--type-module); }
+.legend .lg-dot.type-path      { background: var(--type-path); transform: rotate(45deg); width: 11px; height: 11px; }
+.legend .lg-dot.type-lab       { width: 0; height: 0; background: transparent; border-left: 7px solid transparent; border-right: 7px solid transparent; border-bottom: 14px solid var(--type-lab); }
+.legend .lg-dot.type-classroom { background: var(--type-classroom); box-shadow: inset 0 0 0 2px var(--type-classroom-ring); }
 
 /* Classroom callout */
 .callout {
@@ -247,16 +267,16 @@ body {
   border: none; color: #ffffff; letter-spacing: 0.02em;
 }
 /* Distinct shape + blue-shade per content type (monochrome-blue, shape carries the meaning; no rounded corners) */
-.res-type.type-video    { background: var(--el-primary); }
-.res-type.type-module   { background: var(--el-mid); }
-.res-type.type-path     { background: var(--el-deep); transform: rotate(45deg); }
+.res-type.type-video    { background: var(--type-video); color: #ffffff; }
+.res-type.type-module   { background: var(--type-module); color: #ffffff; }
+.res-type.type-path     { background: var(--type-path); color: #ffffff; transform: rotate(45deg); }
 .res-type.type-path span { display: inline-block; transform: rotate(-45deg); }
-.res-type.type-lab      { background: var(--el-steel); color: var(--el-navy); position: relative; }
+.res-type.type-lab      { background: var(--type-lab); color: var(--type-lab-text); position: relative; }
 .res-type.type-lab::after {
   content: ""; position: absolute; top: 0; right: 0; width: 0; height: 0;
-  border-style: solid; border-width: 0 11px 11px 0; border-color: transparent var(--el-navy) transparent transparent;
+  border-style: solid; border-width: 0 11px 11px 0; border-color: transparent var(--type-lab-notch) transparent transparent;
 }
-.res-type.type-classroom{ background: var(--el-navy); box-shadow: inset 0 0 0 2px #ffffff; }
+.res-type.type-classroom{ background: var(--type-classroom); color: #ffffff; box-shadow: inset 0 0 0 2px var(--type-classroom-ring); }
 .res-body { flex: 1; min-width: 0; }
 .res-title { font-weight: 600; font-size: 0.94rem; margin: 0 0 3px; }
 .res-meta { font-size: 0.78rem; color: var(--cp-text-soft); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
