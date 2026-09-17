@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Copilot Skilling Journey — From 101 to Agents &amp; Apps</title>
 <meta name="description" content="A free, self-paced learning path for Microsoft Copilot: 101 → Power User → Agent Builder → Developer. Curated videos, Microsoft Learn modules, and hands-on labs, with progress tracking and a certificate.">
-<meta name="theme-color" content="#b11f4b">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23b11f4b'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='white' font-family='Segoe UI,Arial,sans-serif'%3E🚀%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#1f3a5f">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231f3a5f'/%3E%3Ctext x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Segoe UI,Arial,sans-serif' font-weight='700'%3ECJ%3C/text%3E%3C/svg%3E">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Copilot Skilling Journey — From 101 to Agents & Apps">
 <meta property="og:description" content="A free, self-paced learning path for Microsoft Copilot: 101 → Power User → Agent Builder → Developer. Videos, Microsoft Learn modules, hands-on labs, and a certificate.">
@@ -25,55 +25,55 @@
 <style>
 :root {
   color-scheme: light;
-  --cp-bg: #f7f4ef;
-  --cp-bg-elevated: #fcfbf8;
+  --cp-bg: #ffffff;
+  --cp-bg-elevated: #f7f8f9;
   --cp-surface: #ffffff;
-  --cp-surface-soft: #f5f5f5;
-  --cp-border: #dedede;
-  --cp-border-strong: #919191;
-  --cp-text: #242424;
-  --cp-text-muted: #5c5c5c;
-  --cp-text-soft: #6f6f6f;
-  --cp-accent: #b11f4b;
-  --cp-accent-hover: #9a1a41;
-  --cp-accent-soft: rgba(177, 31, 75, 0.08);
+  --cp-surface-soft: #f2f3f5;
+  --cp-border: #d7dae0;
+  --cp-border-strong: #9aa1ac;
+  --cp-text: #17212e;
+  --cp-text-muted: #4b5563;
+  --cp-text-soft: #6b7280;
+  --cp-accent: #1f3a5f;
+  --cp-accent-hover: #17293f;
+  --cp-accent-soft: #e9edf2;
   --cp-accent-fg: #ffffff;
-  --cp-success: #16a34a;
-  --cp-danger: #dc2626;
-  --cp-warning: #f59e0b;
-  --cp-link: #0078d4;
-  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.12);
-  --cp-overlay: rgba(255, 255, 255, 0.8);
-  --cp-panel: rgba(255, 255, 255, 0.86);
-  --cp-panel-strong: rgba(255, 255, 255, 0.96);
-  --cp-sheen: rgba(255, 255, 255, 0.55);
-  --cp-highlight: rgba(177, 31, 75, 0.12);
+  --cp-success: #1a7a45;
+  --cp-danger: #b3261e;
+  --cp-warning: #92600a;
+  --cp-link: #1f3a5f;
+  --cp-shadow: none;
+  --cp-overlay: rgba(255, 255, 255, 0.9);
+  --cp-panel: #ffffff;
+  --cp-panel-strong: #ffffff;
+  --cp-sheen: transparent;
+  --cp-highlight: #e9edf2;
 }
 html[data-theme="dark"] {
   color-scheme: dark;
-  --cp-bg: #3d3b3a;
-  --cp-bg-elevated: #343231;
-  --cp-surface: #292929;
-  --cp-surface-soft: #2e2e2e;
-  --cp-border: #474747;
-  --cp-border-strong: #5f5f5f;
-  --cp-text: #dedede;
-  --cp-text-muted: #919191;
-  --cp-text-soft: #b0b0b0;
-  --cp-accent: #fd8ea1;
-  --cp-accent-hover: #fb7b91;
-  --cp-accent-soft: rgba(253, 142, 161, 0.14);
-  --cp-accent-fg: #1a1a1a;
-  --cp-success: #4ade80;
-  --cp-danger: #f87171;
-  --cp-warning: #fbbf24;
-  --cp-link: #4da6ff;
-  --cp-shadow: 0 18px 48px rgba(0, 0, 0, 0.32);
-  --cp-overlay: rgba(41, 41, 41, 0.88);
-  --cp-panel: rgba(41, 41, 41, 0.72);
-  --cp-panel-strong: rgba(41, 41, 41, 0.96);
-  --cp-sheen: rgba(255, 255, 255, 0.04);
-  --cp-highlight: rgba(253, 142, 161, 0.12);
+  --cp-bg: #0f1620;
+  --cp-bg-elevated: #141d29;
+  --cp-surface: #141d29;
+  --cp-surface-soft: #1a2531;
+  --cp-border: #2c3846;
+  --cp-border-strong: #4a5a6c;
+  --cp-text: #e4e8ec;
+  --cp-text-muted: #a8b1bd;
+  --cp-text-soft: #8994a2;
+  --cp-accent: #7fa8d9;
+  --cp-accent-hover: #97b9e3;
+  --cp-accent-soft: #1c2836;
+  --cp-accent-fg: #0f1620;
+  --cp-success: #4caf7d;
+  --cp-danger: #e0645c;
+  --cp-warning: #d1a341;
+  --cp-link: #7fa8d9;
+  --cp-shadow: none;
+  --cp-overlay: rgba(15, 22, 32, 0.92);
+  --cp-panel: #141d29;
+  --cp-panel-strong: #141d29;
+  --cp-sheen: transparent;
+  --cp-highlight: #1c2836;
 }
 
 * { box-sizing: border-box; }
@@ -83,79 +83,69 @@ body {
   color: var(--cp-text);
   font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
   -webkit-font-smoothing: antialiased;
+  font-size: 15px;
+  line-height: 1.5;
 }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 20px 64px; }
 
 /* Site header */
 .site-header {
   display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 16px 0; flex-wrap: wrap;
+  padding: 20px 0; flex-wrap: wrap; border-bottom: 1px solid var(--cp-border); margin-bottom: 24px;
 }
-.site-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; }
+.site-brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1rem; letter-spacing: -0.01em; }
 .site-brand .logo-dot {
-  width: 30px; height: 30px; border-radius: 9px; background: var(--cp-accent); color: var(--cp-accent-fg);
-  display: flex; align-items: center; justify-content: center; font-size: 1rem;
+  width: 28px; height: 28px; background: var(--cp-accent); color: var(--cp-accent-fg);
+  display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.02em;
 }
 .site-actions { display: flex; gap: 8px; flex-wrap: wrap; }
 .site-actions a, .site-actions button {
   border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text);
-  padding: 7px 14px; border-radius: 999px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
+  padding: 7px 14px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
   text-decoration: none; display: inline-flex; align-items: center; gap: 6px;
 }
 .site-actions a:hover, .site-actions button:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
 .site-actions .primary { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
-.site-actions .primary:hover { background: var(--cp-accent-hover); color: var(--cp-accent-fg); }
+.site-actions .primary:hover { background: var(--cp-accent-hover); border-color: var(--cp-accent-hover); color: var(--cp-accent-fg); }
 
 /* Header */
 .hero {
   background: var(--cp-bg-elevated);
   border: 1px solid var(--cp-border);
-  border-radius: 16px;
-  box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
+  border-left: 3px solid var(--cp-accent);
   padding: 28px 30px;
-  margin-bottom: 18px;
-  position: relative;
-  overflow: hidden;
+  margin-bottom: 20px;
 }
-.hero::after {
-  content: "";
-  position: absolute;
-  right: -60px; top: -60px;
-  width: 220px; height: 220px;
-  border-radius: 50%;
-  background: var(--cp-accent-soft);
-}
-.hero h1 { margin: 0 0 6px; font-size: 1.7rem; letter-spacing: -0.01em; position: relative; }
-.hero p { margin: 0; color: var(--cp-text-muted); max-width: 640px; position: relative; }
-.hero-meta { display: flex; gap: 22px; margin-top: 18px; flex-wrap: wrap; position: relative; }
+.hero h1 { margin: 0 0 8px; font-size: 1.5rem; font-weight: 700; letter-spacing: -0.01em; }
+.hero p { margin: 0; color: var(--cp-text-muted); max-width: 680px; }
+.hero-meta { display: flex; gap: 32px; margin-top: 20px; flex-wrap: wrap; }
 .hero-stat { display: flex; flex-direction: column; }
-.hero-stat b { font-size: 1.35rem; }
-.hero-stat span { font-size: 0.78rem; color: var(--cp-text-soft); text-transform: uppercase; letter-spacing: 0.04em; }
+.hero-stat b { font-size: 1.4rem; font-weight: 700; }
+.hero-stat span { font-size: 0.72rem; color: var(--cp-text-soft); text-transform: uppercase; letter-spacing: 0.06em; }
 .overall-bar {
-  margin-top: 16px; height: 8px; border-radius: 6px; background: var(--cp-surface-soft);
+  margin-top: 18px; height: 6px; background: var(--cp-surface-soft);
   overflow: hidden; position: relative; border: 1px solid var(--cp-border);
 }
 .overall-bar > div { height: 100%; background: var(--cp-accent); transition: width .4s ease; }
-.hero-actions { display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap; position: relative; }
+.hero-actions { display: flex; gap: 8px; margin-top: 18px; flex-wrap: wrap; }
 .ghost-btn {
   border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text);
-  padding: 8px 14px; border-radius: 999px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
+  padding: 8px 14px; font-size: 0.8rem; cursor: pointer; font-family: inherit;
   display: inline-flex; align-items: center; gap: 6px;
 }
 .ghost-btn:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
 .ghost-btn.danger:hover { border-color: var(--cp-danger); color: var(--cp-danger); }
 .toast {
   position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%) translateY(20px);
-  background: var(--cp-text); color: var(--cp-bg); padding: 9px 18px; border-radius: 999px;
+  background: var(--cp-text); color: var(--cp-bg); padding: 9px 18px;
   font-size: 0.82rem; opacity: 0; transition: all .25s ease; pointer-events: none; z-index: 50;
-  box-shadow: var(--cp-shadow);
 }
 .toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
 
 /* Search */
 .search-bar {
   display: flex; align-items: center; gap: 10px; background: var(--cp-surface); border: 1px solid var(--cp-border);
-  border-radius: 999px; padding: 8px 16px; margin-bottom: 18px;
+  padding: 9px 16px; margin-bottom: 18px;
 }
 .search-bar input {
   border: none; outline: none; background: transparent; color: var(--cp-text); font-family: inherit;
@@ -164,19 +154,18 @@ body {
 .search-bar .sx { color: var(--cp-text-soft); font-size: 0.8rem; cursor: pointer; display: none; }
 
 /* Badge rail */
-.badge-rail { display: flex; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+.badge-rail { display: flex; gap: 1px; margin-bottom: 18px; flex-wrap: wrap; background: var(--cp-border); border: 1px solid var(--cp-border); }
 .badge-chip {
   flex: 1; min-width: 150px;
-  background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 16px;
+  background: var(--cp-surface); border: none;
   padding: 14px 16px; display: flex; align-items: center; gap: 12px; cursor: pointer;
-  box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
-  transition: border-color .15s ease, transform .15s ease;
+  transition: background-color .15s ease;
 }
-.badge-chip:hover { border-color: var(--cp-accent); transform: translateY(-1px); }
-.badge-chip.active { border-color: var(--cp-accent); background: var(--cp-accent-soft); }
+.badge-chip:hover { background: var(--cp-surface-soft); }
+.badge-chip.active { background: var(--cp-accent-soft); box-shadow: inset 0 -2px 0 var(--cp-accent); }
 .badge-medal {
-  width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  font-size: 1.15rem; flex-shrink: 0; border: 2px solid var(--cp-border-strong);
+  width: 36px; height: 36px; display: flex; align-items: center; justify-content: center;
+  font-size: 0.78rem; font-weight: 700; flex-shrink: 0; border: 1px solid var(--cp-border-strong);
   background: var(--cp-surface-soft); color: var(--cp-text-soft);
 }
 .badge-chip.earned .badge-medal { border-color: var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); }
@@ -184,69 +173,67 @@ body {
 .badge-chip .bc-sub { font-size: 0.76rem; color: var(--cp-text-soft); }
 
 /* Tabs */
-.tabs { display: flex; gap: 8px; margin-bottom: 18px; flex-wrap: wrap; }
+.tabs { display: flex; gap: 0; margin-bottom: 18px; flex-wrap: wrap; border-bottom: 1px solid var(--cp-border); }
 .tab-btn {
-  border: 1px solid var(--cp-border); background: var(--cp-surface); color: var(--cp-text-muted);
-  padding: 9px 16px; border-radius: 999px; font-size: 0.86rem; cursor: pointer; font-family: inherit;
-  transition: all .15s ease;
+  border: none; border-bottom: 2px solid transparent; background: transparent; color: var(--cp-text-muted);
+  padding: 10px 16px; font-size: 0.85rem; cursor: pointer; font-family: inherit;
+  transition: all .15s ease; margin-bottom: -1px;
 }
-.tab-btn.active { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); font-weight: 600; }
-.tab-btn:not(.active):hover { border-color: var(--cp-accent); color: var(--cp-text); }
+.tab-btn.active { border-bottom-color: var(--cp-accent); color: var(--cp-text); font-weight: 600; }
+.tab-btn:not(.active):hover { color: var(--cp-text); }
 
 .panel { display: none; }
-.panel.active { display: block; animation: fadeIn .25s ease; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(4px);} to { opacity: 1; transform: none;} }
+.panel.active { display: block; }
 
 .panel-head { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 14px; flex-wrap: wrap; gap: 10px; }
-.panel-head h2 { margin: 0 0 4px; font-size: 1.25rem; }
+.panel-head h2 { margin: 0 0 4px; font-size: 1.15rem; font-weight: 700; }
 .panel-head p { margin: 0; color: var(--cp-text-muted); font-size: 0.9rem; max-width: 560px; }
 .panel-progress { font-size: 0.82rem; color: var(--cp-text-soft); white-space: nowrap; }
 
 /* Legend */
-.legend { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.78rem; color: var(--cp-text-soft); }
-.legend span { display: inline-flex; align-items: center; gap: 5px; }
+.legend { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; font-size: 0.76rem; color: var(--cp-text-soft); }
+.legend span { display: inline-flex; align-items: center; gap: 6px; }
+.legend .lg-dot { width: 8px; height: 8px; background: var(--cp-border-strong); display: inline-block; }
 
 /* Classroom callout */
 .callout {
-  border: 1px dashed var(--cp-border-strong); border-radius: 14px; padding: 14px 18px; margin-bottom: 18px;
+  border: 1px solid var(--cp-border); border-left: 3px solid var(--cp-accent); padding: 14px 18px; margin-bottom: 18px;
   background: var(--cp-surface); display: flex; gap: 14px; align-items: center; flex-wrap: wrap;
 }
-.callout .co-icon { font-size: 1.4rem; }
 .callout a.pill {
-  text-decoration: none; font-size: 0.8rem; padding: 6px 12px; border-radius: 999px;
-  background: var(--cp-accent-soft); color: var(--cp-accent); border: 1px solid var(--cp-accent);
+  text-decoration: none; font-size: 0.8rem; padding: 6px 12px;
+  background: var(--cp-accent); color: var(--cp-accent-fg); border: 1px solid var(--cp-accent);
   font-weight: 600; white-space: nowrap;
 }
-.callout a.pill:hover { background: var(--cp-accent); color: var(--cp-accent-fg); }
+.callout a.pill:hover { background: var(--cp-accent-hover); border-color: var(--cp-accent-hover); }
 
 /* Cards */
-.card-grid { display: grid; grid-template-columns: 1fr; gap: 10px; }
+.card-grid { display: grid; grid-template-columns: 1fr; gap: 0; border: 1px solid var(--cp-border); border-bottom: none; }
 .res-card {
   display: flex; align-items: flex-start; gap: 14px;
-  background: var(--cp-surface); border: 1px solid var(--cp-border); border-radius: 14px;
-  padding: 14px 16px; box-shadow: 0 0 2px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.14);
-  transition: border-color .15s ease;
+  background: var(--cp-surface); border-bottom: 1px solid var(--cp-border);
+  padding: 14px 16px;
 }
-.res-card:hover { border-color: var(--cp-border-strong); }
-.res-card.done { opacity: 0.62; }
+.res-card:hover { background: var(--cp-bg-elevated); }
+.res-card.done { opacity: 0.55; }
 .res-check {
-  width: 22px; height: 22px; border-radius: 6px; border: 2px solid var(--cp-border-strong);
+  width: 20px; height: 20px; border: 1px solid var(--cp-border-strong);
   flex-shrink: 0; margin-top: 2px; cursor: pointer; display: flex; align-items: center; justify-content: center;
-  background: var(--cp-surface); font-size: 0.8rem; color: transparent;
+  background: var(--cp-surface); font-size: 0.75rem; color: transparent;
 }
 .res-check.checked { background: var(--cp-success); border-color: var(--cp-success); color: #fff; }
 .res-type {
-  flex-shrink: 0; font-size: 1.1rem; width: 34px; height: 34px; border-radius: 10px;
+  flex-shrink: 0; font-size: 0.68rem; font-weight: 700; width: 32px; height: 32px;
   display: flex; align-items: center; justify-content: center; background: var(--cp-surface-soft);
-  border: 1px solid var(--cp-border);
+  border: 1px solid var(--cp-border); color: var(--cp-text-muted); letter-spacing: 0.02em;
 }
 .res-body { flex: 1; min-width: 0; }
-.res-title { font-weight: 600; font-size: 0.94rem; margin: 0 0 2px; }
+.res-title { font-weight: 600; font-size: 0.94rem; margin: 0 0 3px; }
 .res-meta { font-size: 0.78rem; color: var(--cp-text-soft); display: flex; gap: 8px; flex-wrap: wrap; align-items: center; margin-bottom: 4px; }
-.res-tier-tag { font-size: 0.7rem; color: var(--cp-accent); font-weight: 600; }
+.res-tier-tag { font-size: 0.68rem; color: var(--cp-accent); font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; }
 .tag {
-  font-size: 0.7rem; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--cp-border);
-  color: var(--cp-text-muted); text-transform: uppercase; letter-spacing: 0.03em;
+  font-size: 0.68rem; padding: 1px 8px; border: 1px solid var(--cp-border);
+  color: var(--cp-text-muted); text-transform: uppercase; letter-spacing: 0.04em;
 }
 .res-url {
   font-size: 0.72rem; color: var(--cp-text-soft); word-break: break-all; margin: 0;
@@ -254,45 +241,45 @@ body {
 }
 .res-actions { display: flex; flex-direction: column; gap: 6px; flex-shrink: 0; }
 .res-link, .res-copy {
-  text-decoration: none; font-size: 0.78rem; font-weight: 600; color: var(--cp-link);
-  border: 1px solid var(--cp-border); padding: 6px 12px; border-radius: 999px; white-space: nowrap;
+  text-decoration: none; font-size: 0.76rem; font-weight: 600; color: var(--cp-text);
+  border: 1px solid var(--cp-border); padding: 6px 12px; white-space: nowrap;
   background: var(--cp-surface); cursor: pointer; font-family: inherit; text-align: center;
 }
-.res-link:hover, .res-copy:hover { border-color: var(--cp-link); }
+.res-link:hover, .res-copy:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
 
 /* Certificate */
 .cert-wrap { display: flex; flex-direction: column; align-items: center; gap: 18px; }
 .cert-input {
-  width: 100%; max-width: 360px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--cp-border);
+  width: 100%; max-width: 360px; padding: 10px 14px; border: 1px solid var(--cp-border);
   background: var(--cp-surface); color: var(--cp-text); font-family: inherit; font-size: 0.95rem;
 }
 .certificate {
-  width: 100%; max-width: 680px; aspect-ratio: 16/10; border-radius: 16px; position: relative;
-  background: var(--cp-bg-elevated); border: 3px solid var(--cp-accent);
-  box-shadow: var(--cp-shadow); display: flex; flex-direction: column; align-items: center; justify-content: center;
+  width: 100%; max-width: 680px; aspect-ratio: 16/10; position: relative;
+  background: var(--cp-bg-elevated); border: 1px solid var(--cp-text); outline: 1px solid var(--cp-text); outline-offset: -6px;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
   text-align: center; padding: 30px; gap: 6px;
 }
-.certificate .cert-kicker { letter-spacing: 0.15em; text-transform: uppercase; font-size: 0.72rem; color: var(--cp-accent); font-weight: 700; }
-.certificate h3 { margin: 4px 0; font-size: 1.6rem; }
-.certificate .cert-name { font-size: 1.9rem; font-weight: 700; color: var(--cp-accent); margin: 6px 0; font-family: Georgia, serif; }
+.certificate .cert-kicker { letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.7rem; color: var(--cp-text-soft); font-weight: 700; }
+.certificate h3 { margin: 4px 0; font-size: 1.5rem; font-weight: 700; }
+.certificate .cert-name { font-size: 1.7rem; font-weight: 700; color: var(--cp-accent); margin: 8px 0; }
 .certificate .cert-line { font-size: 0.85rem; color: var(--cp-text-muted); max-width: 420px; }
 .certificate .cert-date { font-size: 0.72rem; color: var(--cp-text-soft); margin-top: 8px; }
-.cert-badges { display: flex; gap: 10px; margin-top: 12px; }
+.cert-badges { display: flex; gap: 8px; margin-top: 12px; }
 .cert-badges span {
-  width: 38px; height: 38px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  background: var(--cp-surface-soft); border: 2px solid var(--cp-border); font-size: 1rem; color: var(--cp-text-soft);
+  width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+  background: var(--cp-surface-soft); border: 1px solid var(--cp-border); font-size: 0.7rem; font-weight: 700; color: var(--cp-text-soft);
 }
 .cert-badges span.on { background: var(--cp-accent); border-color: var(--cp-accent); color: var(--cp-accent-fg); }
 .cert-btn-row { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; }
 .print-btn {
-  border: none; background: var(--cp-accent); color: var(--cp-accent-fg); padding: 10px 22px; border-radius: 999px;
-  font-family: inherit; font-weight: 600; font-size: 0.88rem; cursor: pointer;
+  border: 1px solid var(--cp-accent); background: var(--cp-accent); color: var(--cp-accent-fg); padding: 10px 22px;
+  font-family: inherit; font-weight: 600; font-size: 0.86rem; cursor: pointer;
 }
-.print-btn:hover { background: var(--cp-accent-hover); }
+.print-btn:hover { background: var(--cp-accent-hover); border-color: var(--cp-accent-hover); }
 .print-btn.secondary { background: var(--cp-surface); color: var(--cp-text); border: 1px solid var(--cp-border); }
 .print-btn.secondary:hover { border-color: var(--cp-accent); color: var(--cp-accent); }
 
-footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); text-align: center; line-height: 1.6; }
+footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); text-align: center; line-height: 1.6; border-top: 1px solid var(--cp-border); padding-top: 20px; }
 .empty-state { text-align: center; padding: 40px 20px; color: var(--cp-text-soft); }
 
 @media print {
@@ -306,17 +293,17 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 <div class="wrap">
 
   <div class="site-header">
-    <div class="site-brand"><span class="logo-dot">🚀</span> Copilot Skilling Journey</div>
+    <div class="site-brand"><span class="logo-dot">CJ</span> Copilot Skilling Journey</div>
     <div class="site-actions">
-      <button id="share-page">📤 Share</button>
-      <a href="https://github.com/Hasan929292/copilot-skilling-journey" target="_blank" rel="noopener">⭐ View on GitHub</a>
-      <a class="primary" href="https://github.com/Hasan929292/copilot-skilling-journey/issues/new?title=Suggestion%20for%20Copilot%20Skilling%20Journey" target="_blank" rel="noopener">💡 Suggest a resource</a>
+      <button id="share-page">Share</button>
+      <a href="https://github.com/Hasan929292/copilot-skilling-journey" target="_blank" rel="noopener">View on GitHub</a>
+      <a class="primary" href="https://github.com/Hasan929292/copilot-skilling-journey/issues/new?title=Suggestion%20for%20Copilot%20Skilling%20Journey" target="_blank" rel="noopener">Suggest a resource</a>
     </div>
   </div>
 
   <div class="hero">
-    <h1>🚀 Copilot Skilling Journey</h1>
-    <p>101 → Power User → Builder (Agents) → Developer (Apps). Mixed videos, Microsoft Learn modules, and hands-on labs — check items off as you go and earn a badge per tier.</p>
+    <h1>Copilot Skilling Journey</h1>
+    <p>101 → Power User → Builder (Agents) → Developer (Apps). Videos, Microsoft Learn modules, and hands-on labs — check items off as you go and earn a badge per tier.</p>
     <p style="font-size:0.75rem;color:var(--cp-text-soft);margin-top:8px;">An independent, community-curated learning path pointing to public Microsoft Learn and YouTube resources. Not an official Microsoft site.</p>
     <div class="hero-meta">
       <div class="hero-stat"><b id="stat-done">0</b><span>Items complete</span></div>
@@ -325,19 +312,19 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
     </div>
     <div class="overall-bar"><div id="overall-fill" style="width:0%"></div></div>
     <div class="hero-actions">
-      <button class="ghost-btn" id="copy-resume">🔗 Copy resume link (saves your progress)</button>
-      <button class="ghost-btn danger" id="reset-btn">↺ Reset progress</button>
+      <button class="ghost-btn" id="copy-resume">Copy resume link (saves your progress)</button>
+      <button class="ghost-btn danger" id="reset-btn">Reset progress</button>
     </div>
   </div>
 
   <div class="search-bar">
-    <span>🔎</span>
+    <span style="color:var(--cp-text-soft);font-size:0.8rem;">Search</span>
     <input id="search-input" placeholder="Search all videos, modules, and labs across every tier..." />
-    <span class="sx" id="search-clear">Clear ✕</span>
+    <span class="sx" id="search-clear">Clear</span>
   </div>
 
   <div class="legend">
-    <span>🎥 Video</span><span>📘 Learn module</span><span>📚 Learn path</span><span>🧪 Hands-on lab</span><span>🏫 Instructor-led classroom</span>
+    <span><span class="lg-dot"></span>Video</span><span><span class="lg-dot"></span>Learn module</span><span><span class="lg-dot"></span>Learn path</span><span><span class="lg-dot"></span>Hands-on lab</span><span><span class="lg-dot"></span>Instructor-led classroom</span>
   </div>
 
   <div class="badge-rail" id="badge-rail"></div>
@@ -347,14 +334,14 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
   <div id="panels"></div>
 
   <div class="panel" id="panel-search">
-    <div class="panel-head"><div><h2>🔎 Search results</h2><p id="search-summary"></p></div></div>
+    <div class="panel-head"><div><h2>Search results</h2><p id="search-summary"></p></div></div>
     <div class="card-grid" id="search-grid"></div>
   </div>
 
   <div class="panel" id="panel-cert">
     <div class="panel-head">
       <div>
-        <h2>🏅 Your Certificate</h2>
+        <h2>Your Certificate</h2>
         <p>Enter your name and print/save as PDF once all four badges are earned (or anytime, as a progress snapshot).</p>
       </div>
     </div>
@@ -369,8 +356,8 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
         <div class="cert-date" id="cert-date"></div>
       </div>
       <div class="cert-btn-row">
-        <button class="print-btn" id="print-cert">🖨️ Print / Save as PDF</button>
-        <button class="print-btn secondary" id="copy-cert">📋 Copy certificate text</button>
+        <button class="print-btn" id="print-cert">Print / Save as PDF</button>
+        <button class="print-btn secondary" id="copy-cert">Copy certificate text</button>
       </div>
     </div>
   </div>
@@ -383,65 +370,65 @@ footer.note { margin-top: 26px; font-size: 0.78rem; color: var(--cp-text-soft); 
 <script>
 const TIERS = [
   {
-    id: "t1", name: "101", icon: "🌱", title: "Copilot 101 — Awareness", est: "~2.5 hrs total",
+    id: "t1", name: "101", icon: "01", title: "Copilot 101 — Awareness", est: "~2.5 hrs total",
     desc: "What Copilot is, safe/responsible use, and your first prompts. For everyone, no prerequisites.",
     items: [
-      { type: "video", label: "Video", icon: "🎥", title: "Microsoft Copilot for Organizations — Complete Tutorial", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=WclbTYaieHo", mins: "~25 min" },
-      { type: "video", label: "Video", icon: "🎥", title: "Microsoft 365 Copilot Tutorial — Beginner's Guide", src: "Mike Tholfsen · YouTube", url: "https://www.youtube.com/watch?v=JbOJliF-Cn4", mins: "~15 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Introduction to Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/introduction-microsoft-365-copilot/", mins: "20 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Explore the Possibilities with Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/explore-possibilities-microsoft-365-copilot/", mins: "20 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Get ready to work with Microsoft Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-ready-work-microsoft-365-copilot/", mins: "20 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Get started with Microsoft 365 Copilot Chat", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-microsoft-365-copilot-business-chat/", mins: "20 min" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Craft effective prompts for Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/craft-effective-prompts-copilot-microsoft-365/", mins: "45 min" },
-      { type: "lab", label: "Hands-on", icon: "🧪", title: "Try Copilot Chat with 3 real prompts from your own inbox or calendar", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "15 min" }
+      { type: "video", label: "Video", icon: "VD", title: "Microsoft Copilot for Organizations — Complete Tutorial", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=WclbTYaieHo", mins: "~25 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Microsoft 365 Copilot Tutorial — Beginner's Guide", src: "Mike Tholfsen · YouTube", url: "https://www.youtube.com/watch?v=JbOJliF-Cn4", mins: "~15 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Introduction to Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/introduction-microsoft-365-copilot/", mins: "20 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Explore the Possibilities with Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/explore-possibilities-microsoft-365-copilot/", mins: "20 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Get ready to work with Microsoft Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-ready-work-microsoft-365-copilot/", mins: "20 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Get started with Microsoft 365 Copilot Chat", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/get-started-microsoft-365-copilot-business-chat/", mins: "20 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Craft effective prompts for Microsoft 365 Copilot", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/craft-effective-prompts-copilot-microsoft-365/", mins: "45 min" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Try Copilot Chat with 3 real prompts from your own inbox or calendar", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "15 min" }
     ]
   },
   {
-    id: "t2", name: "Power User", icon: "⚡", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~6 hrs total",
+    id: "t2", name: "Power User", icon: "02", title: "Power User — Word, Excel, PowerPoint, Teams, Outlook", est: "~6 hrs total",
     desc: "Fluent day-to-day use of Copilot across the apps people actually work in, plus role-specific use cases.",
     items: [
-      { type: "path", label: "Learning Path", icon: "📚", title: "Draft, analyze, and present with Microsoft Copilot (7 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-with-microsoft-365-copilot/", mins: "~2.5 hrs" },
-      { type: "video", label: "Video", icon: "🎥", title: "Copilot Chat vs Microsoft 365 Copilot: What's the Difference?", src: "Chris Menard · YouTube", url: "https://www.youtube.com/watch?v=vDOjRBeMmiU", mins: "~10 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Work smarter with Microsoft 365 Copilot Chat", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/work-smarter-with-microsoft-365-copilot-chat/", mins: "25 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Build effective presentations with AI (PowerPoint + Idea Coach)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/present-copilot-microsoft-powerpoint/", mins: "25 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Make your meetings more productive with AI (Teams + Facilitator)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/make-your-meetings-more-productive-ai/", mins: "25 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Uncover new data insights with AI (Excel + Analyst agent)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/uncover-new-data-insights-ai/", mins: "30 min" },
-      { type: "module", label: "Module", icon: "📘", title: "Explore prebuilt Microsoft 365 Copilot agents", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/explore-prebuilt-microsoft-365-copilot-agents/", mins: "20 min" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Empower your workforce with Microsoft 365 Copilot use cases (by role: Sales, Marketing, Finance, Legal, IT, HR...)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/empower-workforce-copilot-use-cases/", mins: "~2 hrs" },
-      { type: "lab", label: "Hands-on", icon: "🧪", title: "Draft one real document/deck/analysis for your own work using Copilot", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "30 min" }
+      { type: "path", label: "Learning Path", icon: "LP", title: "Draft, analyze, and present with Microsoft Copilot (7 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/get-started-with-microsoft-365-copilot/", mins: "~2.5 hrs" },
+      { type: "video", label: "Video", icon: "VD", title: "Copilot Chat vs Microsoft 365 Copilot: What's the Difference?", src: "Chris Menard · YouTube", url: "https://www.youtube.com/watch?v=vDOjRBeMmiU", mins: "~10 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Work smarter with Microsoft 365 Copilot Chat", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/work-smarter-with-microsoft-365-copilot-chat/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Build effective presentations with AI (PowerPoint + Idea Coach)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/present-copilot-microsoft-powerpoint/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Make your meetings more productive with AI (Teams + Facilitator)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/make-your-meetings-more-productive-ai/", mins: "25 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Uncover new data insights with AI (Excel + Analyst agent)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/uncover-new-data-insights-ai/", mins: "30 min" },
+      { type: "module", label: "Module", icon: "MD", title: "Explore prebuilt Microsoft 365 Copilot agents", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/explore-prebuilt-microsoft-365-copilot-agents/", mins: "20 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Empower your workforce with Microsoft 365 Copilot use cases (by role: Sales, Marketing, Finance, Legal, IT, HR...)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/empower-workforce-copilot-use-cases/", mins: "~2 hrs" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Draft one real document/deck/analysis for your own work using Copilot", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/copilot/microsoft-365/microsoft-365-copilot-overview", mins: "30 min" }
     ]
   },
   {
-    id: "t3", name: "Builder", icon: "🛠️", title: "Builder — Agents in Copilot Studio (no-code)", est: "~9 hrs total",
+    id: "t3", name: "Builder", icon: "03", title: "Builder — Agents in Copilot Studio (no-code)", est: "~9 hrs total",
     desc: "Move from using Copilot to building agents with Copilot Studio — classroom-ready with a free instructor-led option.",
     items: [
-      { type: "path", label: "Learning Path", icon: "📚", title: "Build a foundation to build AI agents and extend Microsoft 365 Copilot (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-foundation-extend-microsoft-365-copilot/", mins: "~1.5 hrs" },
-      { type: "video", label: "Video", icon: "🎥", title: "How to Build an AI Agent with Microsoft 365 Copilot (No-Code Step-by-Step)", src: "Teacher's Tech · YouTube", url: "https://www.youtube.com/watch?v=Iz3ul6hSeTs", mins: "~18 min" },
-      { type: "video", label: "Video", icon: "🎥", title: "How to Use Microsoft Copilot Studio (Step-by-Step Tutorial)", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=dX9MJM5EokE", mins: "~20 min" },
-      { type: "classroom", label: "Classroom", icon: "🏫", title: "Agent in a Day — free instructor-led workshop (register)", src: "Microsoft, in-person/virtual", url: "https://aka.ms/nextAgIAD", mins: "Half-day" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Agent in a Day — Online Workshop companion (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/agents-online-workshop/", mins: "~2 hrs" },
-      { type: "module", label: "Module", icon: "📘", title: "Build effective agents with Microsoft Copilot Studio", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/build-effective-bots/", mins: "30 min" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Create agents with Microsoft Copilot Studio — Online Workshop", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/power-virtual-agents-workshop/", mins: "~2 hrs" },
-      { type: "module", label: "Module", icon: "📘", title: "Build an autonomous agent in Copilot Studio", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/autonomous-agent/", mins: "30 min" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot in Copilot Studio — declarative agents (5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-365-copilot-studio/", mins: "~2 hrs" },
-      { type: "lab", label: "Hands-on", icon: "🧪", title: "Build and publish one declarative agent for your team", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent", mins: "45 min" }
+      { type: "path", label: "Learning Path", icon: "LP", title: "Build a foundation to build AI agents and extend Microsoft 365 Copilot (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-foundation-extend-microsoft-365-copilot/", mins: "~1.5 hrs" },
+      { type: "video", label: "Video", icon: "VD", title: "How to Build an AI Agent with Microsoft 365 Copilot (No-Code Step-by-Step)", src: "Teacher's Tech · YouTube", url: "https://www.youtube.com/watch?v=Iz3ul6hSeTs", mins: "~18 min" },
+      { type: "video", label: "Video", icon: "VD", title: "How to Use Microsoft Copilot Studio (Step-by-Step Tutorial)", src: "Kevin Stratvert · YouTube", url: "https://www.youtube.com/watch?v=dX9MJM5EokE", mins: "~20 min" },
+      { type: "classroom", label: "Classroom", icon: "CR", title: "Agent in a Day — free instructor-led workshop (register)", src: "Microsoft, in-person/virtual", url: "https://aka.ms/nextAgIAD", mins: "Half-day" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Agent in a Day — Online Workshop companion (4 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/agents-online-workshop/", mins: "~2 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Build effective agents with Microsoft Copilot Studio", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/build-effective-bots/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Create agents with Microsoft Copilot Studio — Online Workshop", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/power-virtual-agents-workshop/", mins: "~2 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Build an autonomous agent in Copilot Studio", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/autonomous-agent/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend Microsoft 365 Copilot in Copilot Studio — declarative agents (5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-365-copilot-studio/", mins: "~2 hrs" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Build and publish one declarative agent for your team", src: "Self-paced exercise", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/overview-declarative-agent", mins: "45 min" }
     ]
   },
   {
-    id: "t4", name: "Developer", icon: "🧑‍💻", title: "Developer / Architect — Extensibility & Apps", est: "~12 hrs total",
+    id: "t4", name: "Developer", icon: "04", title: "Developer / Architect — Extensibility & Apps", est: "~12 hrs total",
     desc: "Custom agents, plugins, connectors, and full extensibility for IT pros and developers — including Azure AI Foundry.",
     items: [
-      { type: "path", label: "Learning Path", icon: "📚", title: "Prepare for Microsoft 365 Copilot extensibility (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/prepare-microsoft-365-copilot-extensibility/", mins: "~1 hr" },
-      { type: "video", label: "Video", icon: "🎥", title: "Copilot Extensibility Fundamentals — MS-4010, Episode 2", src: "Microsoft Learn · YouTube", url: "https://www.youtube.com/watch?v=qyUTEhI91Yo", mins: "~15 min" },
-      { type: "video", label: "Video", icon: "🎥", title: "Create your first Declarative Agent for Microsoft 365 Copilot", src: "Microsoft Community Learning · YouTube", url: "https://www.youtube.com/watch?v=VDhRFMH3Qbs", mins: "~20 min" },
-      { type: "video", label: "Video", icon: "🎥", title: "Connected Declarative Agents for Microsoft 365 Copilot", src: "Microsoft Community Learning · YouTube", url: "https://www.youtube.com/watch?v=vx1-4y-xxXY", mins: "~15 min" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot with Copilot Studio actions and connectors (MS-4009, 5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-copilot-microsoft-365-copilot-studio/", mins: "~2 hrs" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Extend Microsoft 365 Copilot in .NET (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/copilot-m365-extensibility/", mins: "~1.5 hrs" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Build custom agents for Microsoft Teams — Teams AI Library (3 modules, advanced)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-custom-copilots-microsoft-teams/", mins: "~2 hrs" },
-      { type: "module", label: "Module", icon: "📘", title: "Get started with AI agent development on Azure", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/", mins: "30 min" },
-      { type: "path", label: "Learning Path", icon: "📚", title: "Develop AI agents on Azure (Azure AI Foundry Agent Service)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-on-azure/", mins: "~3 hrs" },
-      { type: "module", label: "Module", icon: "📘", title: "Develop an AI agent with Semantic Kernel", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/develop-ai-agent-with-semantic-kernel/", mins: "45 min" },
-      { type: "lab", label: "Hands-on", icon: "🧪", title: "Ship one custom agent or plugin into your org's Copilot", src: "Self-paced capstone", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/", mins: "Capstone" }
+      { type: "path", label: "Learning Path", icon: "LP", title: "Prepare for Microsoft 365 Copilot extensibility (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/prepare-microsoft-365-copilot-extensibility/", mins: "~1 hr" },
+      { type: "video", label: "Video", icon: "VD", title: "Copilot Extensibility Fundamentals — MS-4010, Episode 2", src: "Microsoft Learn · YouTube", url: "https://www.youtube.com/watch?v=qyUTEhI91Yo", mins: "~15 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Create your first Declarative Agent for Microsoft 365 Copilot", src: "Microsoft Community Learning · YouTube", url: "https://www.youtube.com/watch?v=VDhRFMH3Qbs", mins: "~20 min" },
+      { type: "video", label: "Video", icon: "VD", title: "Connected Declarative Agents for Microsoft 365 Copilot", src: "Microsoft Community Learning · YouTube", url: "https://www.youtube.com/watch?v=vx1-4y-xxXY", mins: "~15 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend Microsoft 365 Copilot with Copilot Studio actions and connectors (MS-4009, 5 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/extend-microsoft-copilot-microsoft-365-copilot-studio/", mins: "~2 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Extend Microsoft 365 Copilot in .NET (3 modules)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/copilot-m365-extensibility/", mins: "~1.5 hrs" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Build custom agents for Microsoft Teams — Teams AI Library (3 modules, advanced)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/build-custom-copilots-microsoft-teams/", mins: "~2 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Get started with AI agent development on Azure", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/ai-agent-fundamentals/", mins: "30 min" },
+      { type: "path", label: "Learning Path", icon: "LP", title: "Develop AI agents on Azure (Azure AI Foundry Agent Service)", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/paths/develop-ai-agents-on-azure/", mins: "~3 hrs" },
+      { type: "module", label: "Module", icon: "MD", title: "Develop an AI agent with Semantic Kernel", src: "Microsoft Learn", url: "https://learn.microsoft.com/en-us/training/modules/develop-ai-agent-with-semantic-kernel/", mins: "45 min" },
+      { type: "lab", label: "Hands-on", icon: "HO", title: "Ship one custom agent or plugin into your org's Copilot", src: "Self-paced capstone", url: "https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/", mins: "Capstone" }
     ]
   }
 ];
@@ -635,12 +622,12 @@ function renderAll() {
 
     let calloutHtml = "";
     if (tier.id === "t3") {
-      calloutHtml = `<div class="callout"><span class="co-icon">🏫</span>
+      calloutHtml = `<div class="callout">
         <div><strong>Classroom-ready:</strong> Agent in a Day is Microsoft's free instructor-led workshop — perfect for running this tier as an in-person session.</div>
         <a class="pill" href="https://aka.ms/nextAgIAD" target="_blank" rel="noopener">Register an event →</a></div>`;
     }
     if (tier.id === "t4") {
-      calloutHtml = `<div class="callout"><span class="co-icon">🏫</span>
+      calloutHtml = `<div class="callout">
         <div><strong>Also available:</strong> Copilot Studio in a Day instructor-led course for developer/IT audiences.</div>
         <a class="pill" href="https://aka.ms/nextcsiad" target="_blank" rel="noopener">Browse training events →</a></div>`;
     }
@@ -759,8 +746,8 @@ const resetBtn = document.getElementById("reset-btn");
 resetBtn.addEventListener("click", () => {
   if (!resetArmed) {
     resetArmed = true;
-    resetBtn.textContent = "⚠️ Click again to confirm reset";
-    setTimeout(() => { resetArmed = false; resetBtn.textContent = "↺ Reset progress"; }, 3000);
+    resetBtn.textContent = "Click again to confirm reset";
+    setTimeout(() => { resetArmed = false; resetBtn.textContent = "Reset progress"; }, 3000);
     return;
   }
   progress = {};
@@ -772,7 +759,7 @@ resetBtn.addEventListener("click", () => {
     try { localStorage.removeItem(STORE_KEY); localStorage.removeItem(STORE_NAME_KEY); } catch (e) {}
   }
   resetArmed = false;
-  resetBtn.textContent = "↺ Reset progress";
+  resetBtn.textContent = "Reset progress";
   renderAll();
   showToast("Progress reset");
 });
@@ -795,7 +782,7 @@ document.getElementById("share-page").addEventListener("click", () => {
   const tabsEl = document.getElementById("tabs");
   const btn = document.createElement("button");
   btn.className = "tab-btn";
-  btn.textContent = "🏅 Certificate";
+  btn.textContent = "Certificate";
   btn.addEventListener("click", showCertificate);
   // append after initial render each time tabs redraw
   const origRender = renderAll;
