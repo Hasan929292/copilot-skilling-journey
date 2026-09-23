@@ -22,6 +22,15 @@
     y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
 })(window, document, "clarity", "script", "ymzyvxeo6a");
 </script>
+<!-- Optional org tagging: append ?org=some-name to any shared link to bucket that session's Clarity data by organization — no form, no PII, purely based on which link was clicked. -->
+<script>
+  (() => {
+    const org = new URLSearchParams(window.location.search).get("org");
+    if (org && window.clarity) {
+      window.clarity("set", "organization", org.slice(0, 60));
+    }
+  })();
+</script>
 <script>
   (() => {
     const param = new URLSearchParams(window.location.search).get("scoutTheme");
